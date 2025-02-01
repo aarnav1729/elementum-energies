@@ -1,5 +1,4 @@
 ---
-// Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ContactSection from "@components/sections/misc/ContactSection.astro";
 import { SITE } from "@data/constants";
@@ -7,23 +6,22 @@ import { SITE } from "@data/constants";
 const pageTitle: string = `Contact | ${SITE.title}`;
 ---
 
-<!--Utilizing MainLayout for the outer layout of the page, and defining meta for SEO purposes-->
 <MainLayout
   title={pageTitle}
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/contact",
-    "url": "https://screwfast.uk/contact",
-    "name": "Contact Us | ScrewFast",
+    "@id": "https://elementumenergies.com/contact",
+    "url": "https://elementumenergies.com/contact",
+    "name": "Contact Us | Elementum Energies",
     "description":
-      "Have questions or want to discuss a project? Reach out, and let's craft the perfect solution with our tools and services.",
+      "Reach out to Elementum Energies for inquiries, support, or to discuss your industrial product and service needs. Our team is ready to help drive your operations forward.",
     "isPartOf": {
       "@type": "WebSite",
-      "url": "https://screwfast.uk",
-      "name": "ScrewFast",
+      "url": "https://elementumenergies.com",
+      "name": "Elementum Energies",
       "description":
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "Elementum Energies is a leading provider of innovative and reliable solutions for industrial applications across various sectors."
     },
     "inLanguage": "en-US"
   }}

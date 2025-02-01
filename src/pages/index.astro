@@ -1,147 +1,196 @@
 ---
-// Import the necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
+
+// Sections (you can remove or rearrange any of these as desired)
 import HeroSection from "@components/sections/landing/HeroSection.astro";
-import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
 import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
-import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
+import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
+
+// Images
 import heroImage from "@images/hero-image.avif";
-import faqs from "@data/faqs.json";
-import features from "@data/features.json";
-import pricing from "@data/pricing.json";
 import featureImage from "@images/features-image.avif";
-import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
-import { partnersData } from "@/data_files/constants";
+import construction from "@images/construction-image.avif";
 
+// Example data placeholders
+import faqs from "@data/faqs.json"; // If you wish to keep an FAQ section
+import { partnersData } from "@/data_files/constants"; // Adjust partner data as needed
+
+// Avatar placeholders for the Testimonials Section
 const avatarSrcs: Array<string> = [
-  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+];
+
+// “Why Choose Us” bullets from client info
+const whyChooseUs = [
+  {
+    question: "Quality Products",
+    answer:
+      "We only offer products that meet strict industry standards, ensuring reliability and longevity.",
+  },
+  {
+    question: "Customer-Centric Service",
+    answer:
+      "Our team is dedicated to understanding your needs and providing tailored solutions that save you time and money.",
+  },
+  {
+    question: "Fast & Reliable Delivery",
+    answer:
+      "With our robust supply chain, we guarantee fast and reliable delivery for projects of any scale.",
+  },
+  {
+    question: "Competitive Pricing",
+    answer:
+      "We offer the best prices without compromising on quality, helping you maintain cost-effective operations.",
+  },
 ];
 ---
 
 <MainLayout>
-  <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Explore ScrewFast on GitHub"
-    url="https://github.com/mearashadowfax/ScrewFast"
-  />
-
+  <!-- Hero Section -->
   <HeroSection
-    title=`Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
-    primaryBtn="Start Exploring"
+    title=`Elementum Energies<br class="hidden sm:block" />
+           <span class="text-crimson dark:text-amber">
+             Innovative. Reliable. Sustainable.
+           </span>`
+    subTitle="Leading provider of industrial solutions for Oil & Gas, Refinery & Petrochemical, Manufacturing, Marine, Mining, Construction, Agriculture, and more."
+    primaryBtn="Explore Our Products"
     primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="/contact"
+    secondaryBtn="Learn About Us"
+    secondaryBtnURL="/services"
     withReview={true}
     avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
+    rating=`<span class="font-bold">5.0</span> / 5`
+    starCount={5}
+    reviews=`Rated Highly by Clients Worldwide`
     src={heroImage}
-    alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+    alt="Elementum Energies industrial product lineup"
   />
 
+  <!-- Trusted by Industry (Partners/Clients) -->
   <ClientsSection
-    title="Trusted by Industry Leaders"
-    subTitle="Experience the reliability chosen by industry giants."
+    title="Serving Industries Worldwide"
+    subTitle="Elementum Energies supports businesses in Oil & Gas, Refinery & Petrochemical, Manufacturing, Marine, Mining, Construction, and more."
     partners={partnersData}
   />
 
+  <!-- Core Features/Highlights -->
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+    title="Driving Safety, Efficiency & Sustainability"
+    subTitle="Elementum Energies offers cost-effective solutions tailored to the diverse needs of our clients. Partner with us to enhance operational performance in the most demanding environments."
     src={featureImage}
-    alt="ScrewFast products in floating boxes"
-    features={features}
+    alt="Elementum Energies product highlights"
+    features={[
+      {
+        title: "Industry Expertise",
+        description:
+          "Years of experience delivering products and services that meet the highest standards for safety and efficiency.",
+        icon: "check-circle",
+      },
+      {
+        title: "Wide Product Range",
+        description:
+          "Mechanical, electrical, and instrumentation items from reputable manufacturers ensure quality and reliability.",
+        icon: "check-circle",
+      },
+      {
+        title: "Global Reach",
+        description:
+          "Supporting sectors around the world with robust supply chain capabilities and reliable distribution networks.",
+        icon: "check-circle",
+      },
+    ]}
   />
 
+  <!-- Feature Tabs Section (optional) -->
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
+    title=`Solutions Built for <span class="text-yellow-500 dark:text-yellow-400">Your</span> Industry`
     tabs={[
       {
-        heading: "Cutting-Edge Tools",
+        heading: "Diverse Industries",
         content:
-          "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
+          "From Oil & Gas to Agriculture, we ensure every client’s unique needs are met with top-tier products and services.",
         svg: "tools",
         src: tools,
         alt: "Yellow and black heavy equipment on brown grass field",
         first: true,
       },
       {
-        heading: "Intuitive Dashboards",
+        heading: "Efficient Management",
         content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
+          "Manage your supply chain, inventory, and operations seamlessly with our dedicated support and distribution services.",
         svg: "dashboard",
         src: dashboard,
-        alt: "A screenshot or graphic representation of the intuitive dashboard",
+        alt: "An intuitive operations dashboard",
         second: true,
       },
       {
-        heading: "Robust Features",
+        heading: "Sustainable Future",
         content:
-          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+          "Our commitment to sustainability drives innovation across our product range, ensuring a safer, greener tomorrow.",
         svg: "house",
         src: construction,
-        alt: "Gray metal building frame near tower crane during daytime",
+        alt: "Construction solutions with emphasis on safety and sustainability",
       },
     ]}
   />
 
+  <!-- Testimonials (optional) -->
   <TestimonialsSection
-    title="Fast-Track Your Projects"
-    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
-    ;
+    title="Committed to Excellence"
+    subTitle="Hear how we’ve helped clients around the globe streamline operations and maintain the highest safety standards."
     testimonials={[
       {
         content:
-          "ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
+          "Elementum Energies has transformed our supply chain efficiency. Their prompt delivery and product quality are unmatched in the industry.",
+        author: "Amanda Peterson",
+        role: "Supply Chain Manager | Global Manufacturing Corp.",
         avatarSrc:
-          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=320&h=320&fit=facearea&facepad=2",
       },
     ]}
     statistics={[
       {
-        count: "70k+",
-        description:
-          "customers equipped — from DIY to major construction firms",
+        count: "10,000+",
+        description: "Clients served across multiple industries worldwide",
       },
       {
-        count: "35%",
-        description:
-          "uptick in project efficiency with ScrewFast tools and services",
+        count: "99%",
+        description: "Positive client feedback on quality & reliability",
       },
       {
-        count: "15.3%",
-        description:
-          "reduction in maintenance costs reported by long-term clients",
+        count: "24/7",
+        description: "Support ensuring minimal downtime",
       },
       {
-        count: "2x",
-        description: "quicker assembly using innovative fastening solutions",
+        count: "Top Tier",
+        description: "Partners with reputable global manufacturers",
       },
     ]}
   />
 
-  <PricingSection pricing={pricing} />
+  <!-- After: Wrap your array in an object matching FaqGroup -->
+  <FAQ
+    title="Why Choose<br />Elementum Energies?"
+    faqs={{
+      subTitle: "Learn more about our dedication to quality and reliability.",
+      faqs: whyChooseUs,
+    }}
+  />
 
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
-
+  <!-- Mission/Vision CTA Section -->
   <HeroSectionAlt
-    title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/mearashadowfax/ScrewFast"
+    title="Our Mission & Vision"
+    subTitle="Mission: To build long-lasting relationships with our clients based on trust, quality, and performance. Vision: To become the industry’s leading supplier of industrial products, known for our commitment to quality, customer satisfaction, and sustainable practices."
+    url="/services"
+    btnText="Explore Our Services"
   />
 </MainLayout>
