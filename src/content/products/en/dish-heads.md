@@ -38,5 +38,5 @@ specificationsLeft:
     subTitle: "5mm – 115mm"
 blueprints:
   first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprints-2.avif"
+  second: "@/images/blueprint-2.avif"
 ---
