@@ -1,142 +1,130 @@
 ---
-// Import the necessary components
+// Importing necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import HeroSection from "@components/sections/landing/HeroSection.astro";
-import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import ClientsSection from "@components/sections/landing/ClientsSection.astro";
-import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
-import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
-import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
-import PricingSection from "@components/sections/pricing/PricingSection.astro";
-import FAQ from "@components/sections/misc/FAQ.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "@images/hero-image.avif";
-import faqs from "@data/faqs.json";
-import features from "@data/features.json";
-import pricing from "@data/pricing.json";
-import featureImage from "@images/features-image.avif";
-import construction from "@images/construction-image.avif";
-import tools from "@images/automated-tools.avif";
-import dashboard from "@images/dashboard-image.avif";
-import { partnersData } from "@/data_files/constants";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import CardWide from "@components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 
-const avatarSrcs: Array<string> = [
-  "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
-  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
+// Importing necessary functions from Astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { SITE } from "@data/constants";
+
+// Fetching all the product related content and sorting it by main.id
+const product: CollectionEntry<"products">[] = (
+  await getCollection("products", ({ id }) => {
+    return id.startsWith("en/");
+  })
+).sort(
+  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+    a.data.main.id - b.data.main.id,
+);
+
+// Define variables for page content
+const title: string = "Products";
+const subTitle: string =
+  "Explore the extensive range of high-quality industrial products from Elementum Energies, engineered for durability, precision, and performance across sectors such as Oil & Gas and Refinery & Petrochemical.";
+
+// Testimonial data that will be rendered in the component
+const testimonials = [
+  {
+    content:
+      "“Since adopting Elementum Energies’ industrial solutions, our operational efficiency has soared. Their reliable pipes, fittings, and other products consistently deliver exceptional performance under even the most demanding conditions.”",
+    author: "Jason Clark",
+    role: "Operations Manager | TopBuild",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Profile image of Jason Clark",
+  },
+  {
+    content:
+      "“As a facility manager, I require industrial products that combine quality with reliability. Elementum Energies’ comprehensive product range has been a game-changer, ensuring our operations run smoothly while exceeding safety standards.”",
+    author: "Maria Gonzalez",
+    role: "Facility Manager | Creative Spaces",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Profile image of Maria Gonzalez",
+  },
+  {
+    content:
+      "“After years in the industry, I can confidently say that Elementum Energies delivers unmatched quality. Their industrial products—from high-grade pipes to precision fittings—consistently perform to the highest standards.”",
+    author: "Richard Kim",
+    role: "Senior Engineer | WoodWright",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+    avatarAlt: "Profile image of Richard Kim",
+  },
 ];
+
+const pageTitle: string = `Products | ${SITE.title}`;
 ---
-
-<MainLayout>
-  <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Learn More About Elementum Energies"
-    url="/about"
-  />
-
-  <HeroSection
-    title=`Empower Your Operations with <span class="text-yellow-500 dark:text-yellow-400">Elementum Energies</span>`
-    subTitle="Innovative and reliable industrial solutions focused on safety, efficiency, and sustainability."
-    primaryBtn="Explore Our Solutions"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Us"
-    secondaryBtnURL="/contact"
-    withReview={true}
-    avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews={`Trusted by over <span class="font-bold">12.8k</span> clients`}
-    src={heroImage}
-    alt="Array of industrial products by Elementum Energies"
-  />
-
-  <ClientsSection
-    title="Trusted by Industry Leaders"
-    subTitle="Partnered with top manufacturers and suppliers to deliver the best industrial solutions."
-    partners={partnersData}
-  />
-
-  <FeaturesGeneral
-    title="Innovative Industrial Solutions"
-    subTitle="At Elementum Energies, we deliver tailored, reliable solutions that enhance operational performance and ensure safety in the most demanding environments."
-    src={featureImage}
-    alt="Showcase of industrial solutions by Elementum Energies"
-    features={features}
-  />
-
-  <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Elementum Energies</span>' solutions to meet your industrial needs.`
-    tabs={[
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://elementumenergies.com/products",
+    "url": "https://elementumenergies.com/products",
+    "name": "Industrial Products | Elementum Energies",
+    "description": "Explore our extensive range of high-quality industrial products engineered for durability, precision, and performance.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "url": "https://elementumenergies.com",
+      "name": "Elementum Energies",
+      "description": "Elementum Energies delivers innovative industrial solutions with a commitment to safety, efficiency, and sustainability."
+    },
+    "inLanguage": "en-US"
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+        >
+          {title}
+        </h1>
+        {
+          subTitle && (
+            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
+              {subTitle}
+            </p>
+          )
+        }
+      </div>
+      <PrimaryCTA title="Client Success Stories" url="#testimonials" noArrow={true} />
+    </div>
+    <!--Displaying products in alternating styles-->
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
-        heading: "Industrial Pipes & Fittings",
-        content:
-          "Explore our high-quality pipes, fittings, and flanges designed for optimal performance in Oil & Gas and other sectors.",
-        svg: "tools",
-        src: tools,
-        alt: "Industrial pipes and fittings in operation",
-        first: true,
-      },
-      {
-        heading: "Efficient Operations",
-        content:
-          "Experience streamlined processes and enhanced operational efficiency with our reliable industrial solutions.",
-        svg: "dashboard",
-        src: dashboard,
-        alt: "Modern control panels in an industrial setting",
-        second: true,
-      },
-      {
-        heading: "Quality & Reliability",
-        content:
-          "Our solutions meet strict industry standards to ensure safety, efficiency, and longevity in every application.",
-        svg: "house",
-        src: construction,
-        alt: "Robust industrial infrastructure showcasing quality construction",
-      },
+        product.map((product, index) => {
+          const position = index % 4;
+          if (position === 0 || position === 3) {
+            return <CardSmall product={product} />;
+          } else {
+            return <CardWide product={product} />;
+          }
+        })
+      }
+    </section>
+  </div>
+  <!--Features statistics section-->
+  <FeaturesStatsAlt
+    title="Why Choose Elementum Energies?"
+    subTitle="Transform your operations with our innovative and reliable industrial solutions. Our products are engineered for performance, ensuring safety and efficiency in every application."
+    benefits={[
+      "High-quality products meeting strict industry standards.",
+      "Innovative solutions tailored to diverse industrial needs.",
+      "Dedicated customer service and comprehensive support.",
     ]}
   />
-
-  <TestimonialsSection
-    title="Accelerate Your Success"
-    subTitle="At Elementum Energies, our commitment to excellence and prompt delivery drives operational efficiency."
-    testimonials={[
-      {
-        content:
-          "Elementum Energies has significantly improved our operational performance with their reliable, cost-effective solutions. Their customer-centric approach and timely delivery have been transformative for our business.",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
-        avatarSrc:
-          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      },
-    ]}
-    statistics={[
-      {
-        count: "70k+",
-        description: "clients served across diverse industrial sectors",
-      },
-      {
-        count: "35%",
-        description: "increase in operational efficiency reported by our customers",
-      },
-      {
-        count: "15.3%",
-        description: "reduction in maintenance costs with our solutions",
-      },
-      {
-        count: "2x",
-        description: "quicker turnaround times through our robust supply chain",
-      },
-    ]}
-  />
-
-  <PricingSection pricing={pricing} />
-
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
-
-  <HeroSectionAlt
-    title="Let's Advance Together"
-    subTitle="Elementum Energies is dedicated to providing sustainable, high-quality industrial solutions that power progress."
-    url="/about"
+  <!--Testimonials section-->
+  <TestimonialsSectionAlt
+    title="What Our Clients Say"
+    testimonials={testimonials}
   />
 </MainLayout>

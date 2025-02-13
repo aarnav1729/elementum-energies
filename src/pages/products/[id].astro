@@ -15,7 +15,6 @@ declare global {
 }
 
 // This gets the static paths for all the unique products
-
 export async function getStaticPaths() {
   const productEntries = await getCollection("products", ({ id }) =>
     id.startsWith("en/")
@@ -30,10 +29,8 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-
 const pageTitle: string = `${product.data.title} | ${SITE.title}`;
 ---
-
 <MainLayout title={pageTitle}>
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
   </div>
@@ -190,12 +187,9 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
                             </thead>
                             <tbody class="divide-y divide-neutral-300 dark:divide-neutral-700">
                               {product.data.tableData?.map((row) =>
-                                // Wrap each row's content in a separate <tr> element
                                 row.description.map((rowData) => (
                                   <tr>
-                                    {/* Iterate through each cell value in the row's description array */}
                                     {rowData.map((cellValue) => (
-                                      // Render each cell value in its own <td> element
                                       <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-neutral-600 dark:text-neutral-400">
                                         {cellValue}
                                       </td>
@@ -228,7 +222,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             <Image
               src={product.data.blueprints.first}
               class="h-full w-full object-cover object-center"
-              alt="Blueprint Illustration"
+              alt="Industrial product blueprint illustration"
               format={"avif"}
             />
           )
@@ -241,7 +235,7 @@ const pageTitle: string = `${product.data.title} | ${SITE.title}`;
             <Image
               src={product.data.blueprints.second}
               class="h-full w-full object-cover object-center"
-              alt="Blueprint Illustration"
+              alt="Industrial product blueprint illustration"
               format={"avif"}
             />
           )
