@@ -5,7 +5,7 @@ main:
   id: 2
   content: |
     Elementum Energies is a top supplier of premium carbon, stainless, duplex, and super duplex steel fittings. Our selection includes sizes from 1/2" to 36", available in various material grades and standards. All our materials are approved with major Oil & Gas companies.
-  imgCard: "@/images/product-image-1.aviff"
+  imgCard: "@/images/product-image-1.avif"
   imgMain: "@/images/product-image-1.avif"
   imgAlt: "Industrial steel fittings"
 tabs:
