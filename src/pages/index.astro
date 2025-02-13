@@ -31,79 +31,81 @@ const avatarSrcs: Array<string> = [
 <MainLayout>
   <AnnouncementBanner
     btnId="dismiss-button"
-    btnTitle="Learn More About Elementum Energies"
-    url="/about"
+    btnTitle="Explore ScrewFast on GitHub"
+    url="https://github.com/mearashadowfax/ScrewFast"
   />
 
   <HeroSection
-    title=`Empower Your Operations with <span class="text-yellow-500 dark:text-yellow-400">Elementum Energies</span>`
-    subTitle="Innovative, reliable industrial solutions tailored for your operational needs."
-    primaryBtn="Explore Our Solutions"
+    title=`Equip Your Projects with <span
+        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
+    subTitle="Top-quality hardware tools and expert construction services for every project need."
+    primaryBtn="Start Exploring"
     primaryBtnURL="/products"
-    secondaryBtn="Contact Us"
+    secondaryBtn="Contact Sales Team"
     secondaryBtnURL="/contact"
     withReview={true}
     avatars={avatarSrcs}
     rating=`<span class="font-bold">4.8</span> / 5`
     starCount={4}
-    reviews={`Trusted by over <span class="font-bold">12.8k</span> clients`}
+    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
     src={heroImage}
-    alt="Display of Elementum Energies industrial products"
+    alt="Stack of ScrewFast product boxes containing assorted hardware tools"
   />
 
   <ClientsSection
     title="Trusted by Industry Leaders"
-    subTitle="Experience the reliability chosen by top industrial partners."
+    subTitle="Experience the reliability chosen by industry giants."
     partners={partnersData}
   />
 
   <FeaturesGeneral
-    title="Delivering Industrial Excellence"
-    subTitle="At Elementum Energies, we overcome the challenges of modern industry with innovative solutions and exceptional service. Our products and services are engineered to drive efficiency and safety in every application."
+    title="Meeting Industry Demands"
+    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
     src={featureImage}
-    alt="Showcase of Elementum Energies industrial solutions"
+    alt="ScrewFast products in floating boxes"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Elementum Energies</span>' offerings to perfectly suit your industrial requirements.`
+    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
     tabs={[
       {
-        heading: "Robust Industrial Products",
+        heading: "Cutting-Edge Tools",
         content:
-          "Empower your operations with our advanced industrial solutions, designed for durability and peak performance in challenging environments.",
+          "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
         svg: "tools",
         src: tools,
-        alt: "High-quality industrial equipment on display",
+        alt: "Yellow and black heavy equipment on brown grass field",
         first: true,
       },
       {
-        heading: "Integrated Management Systems",
+        heading: "Intuitive Dashboards",
         content:
-          "Seamlessly oversee your operations with our intuitive management systems, providing clear insights and effective control.",
+          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
         svg: "dashboard",
         src: dashboard,
-        alt: "Graphic representation of industrial dashboards",
+        alt: "A screenshot or graphic representation of the intuitive dashboard",
         second: true,
       },
       {
-        heading: "Reliable Performance",
+        heading: "Robust Features",
         content:
-          "Experience unparalleled efficiency and consistency with our cutting-edge features designed to meet rigorous industrial demands.",
+          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
         svg: "house",
         src: construction,
-        alt: "Modern industrial facility infrastructure",
+        alt: "Gray metal building frame near tower crane during daytime",
       },
     ]}
   />
 
   <TestimonialsSection
-    title="Accelerate Your Operations"
-    subTitle="At Elementum Energies, our prompt service and expert solutions empower you to achieve operational efficiency from day one."
+    title="Fast-Track Your Projects"
+    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
+    ;
     testimonials={[
       {
         content:
-          "Elementum Energies significantly boosted our operational efficiency. Their reliable solutions and expert support transformed our processes and delivered outstanding results.",
+          "ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
         author: "Samantha Ruiz",
         role: "Chief Operating Officer | ConstructIt Inc.",
         avatarSrc:
@@ -114,21 +116,21 @@ const avatarSrcs: Array<string> = [
       {
         count: "70k+",
         description:
-          "industrial clients served across diverse sectors",
+          "customers equipped — from DIY to major construction firms",
       },
       {
         count: "35%",
         description:
-          "increase in operational efficiency reported by our customers",
+          "uptick in project efficiency with ScrewFast tools and services",
       },
       {
         count: "15.3%",
         description:
-          "reduction in maintenance costs through our innovative solutions",
+          "reduction in maintenance costs reported by long-term clients",
       },
       {
         count: "2x",
-        description: "quicker turnaround with our robust supply chain",
+        description: "quicker assembly using innovative fastening solutions",
       },
     ]}
   />
@@ -138,8 +140,8 @@ const avatarSrcs: Array<string> = [
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
   <HeroSectionAlt
-    title="Let's Build the Future Together"
-    subTitle="Discover how Elementum Energies is driving industrial innovation through advanced solutions and exceptional service."
-    url="/contact"
+    title="Let's Build Together"
+    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
+    url="https://github.com/mearashadowfax/ScrewFast"
   />
 </MainLayout>
