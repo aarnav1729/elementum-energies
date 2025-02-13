@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Ask us anything about our industrial solutions and services, and get factual responses.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "What industries do you serve?",
+      "answer": "We provide innovative and reliable solutions for a wide range of industrial applications including Oil & Gas, Refinery & Petrochemical, Manufacturing, Marine, Mining, Construction, Agriculture, and more."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "How do you ensure product quality?",
+      "answer": "We partner with the most reputable manufacturers and adhere to strict industry standards to ensure that every product meets the highest quality and safety requirements."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "What makes Elementum Energies different?",
+      "answer": "Our commitment to safety, efficiency, and sustainability, along with our customer-centric approach, sets us apart in delivering tailored, cost-effective industrial solutions."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "What support services do you offer?",
+      "answer": "We offer comprehensive support including personalized consultations, training, and after-sales services to ensure your operations run smoothly and efficiently."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "How do you keep up with industry innovations?",
+      "answer": "We continuously update our solutions and leverage cutting-edge technologies to deliver state-of-the-art products that meet evolving industry demands."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "Do you provide custom solutions?",
+      "answer": "Yes, we work closely with our clients to design and implement solutions that are tailored to their specific industrial requirements and operational challenges."
     }
   ]
 }

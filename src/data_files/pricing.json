@@ -1,38 +1,36 @@
 {
-  "title": "Simple, Transparent Pricing",
-  "subTitle": "Boost efficiency with ScrewFast's clear, value-driven plans.",
-  "badge": "Best value",
-  "thirdOption": "Enterprise Solutions?",
+  "title": "Our Industrial Products",
+  "subTitle": "Discover our comprehensive range of high-quality industrial solutions tailored to your operational needs.",
+  "badge": "Top Choice",
+  "thirdOption": "Looking for custom solutions?",
   "btnText": "Get a Custom Quote",
-
   "starterKit": {
-    "name": "Starter Kit",
-    "description": "Best option for DIY projects",
-    "price": "49",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Oil & Gas Solutions",
+    "description": "Comprehensive range of pipes, fittings, and flanges for the Oil & Gas industry.",
+    "price": "Contact",
+    "cents": "",
+    "billingFrequency": "",
     "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
+      "High-quality materials",
+      "Industry-approved",
+      "Reliable performance"
     ],
-    "purchaseBtnTitle": "Get the Starter Kit",
+    "purchaseBtnTitle": "Inquire Now",
     "purchaseLink": "#"
   },
-
   "professionalToolbox": {
-    "name": "Professional Toolbox",
-    "description": "Best for large scale uses",
-    "price": "89",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Industrial Equipment",
+    "description": "Robust equipment and components designed for efficiency and durability across various sectors.",
+    "price": "Contact",
+    "cents": "",
+    "billingFrequency": "",
     "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
+      "Quality assured",
+      "Customer-centric service",
+      "Tailored solutions",
+      "Competitive pricing"
     ],
-    "purchaseBtnTitle": "Get the Professional Toolbox",
+    "purchaseBtnTitle": "Inquire Now",
     "purchaseLink": "#"
   }
 }
