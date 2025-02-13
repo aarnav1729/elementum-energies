@@ -5,7 +5,7 @@ import { docsSchema } from '@astrojs/starlight/schema';
 // PRODUCTS COLLECTION
 const productsCollection = defineCollection({
   // 🚫 Remove the loader property entirely!
-  // loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/products" }),
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/products" }),
 
   schema: ({ image }) =>
     z.object({
