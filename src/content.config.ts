@@ -2,11 +2,8 @@
 import { z, defineCollection } from 'astro:content';
 import { docsSchema } from '@astrojs/starlight/schema';
 
-// PRODUCTS COLLECTION
 const productsCollection = defineCollection({
-  // 🚫 Remove the loader property entirely!
-  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/products" }),
-
+  // Astro automatically loads .md/.mdx files from your content directory.
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -66,9 +63,7 @@ const productsCollection = defineCollection({
     }),
 });
 
-// BLOG COLLECTION
 const blogCollection = defineCollection({
-  // loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/blog" }), // remove the loader
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -86,27 +81,21 @@ const blogCollection = defineCollection({
     }),
 });
 
-// INSIGHTS COLLECTION
 const insightsCollection = defineCollection({
-  // loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/insights" }), // remove
   schema: ({ image }) =>
     z.object({
       title: z.string(),
       description: z.string(),
-      // contents: z.array(z.string()),
       cardImage: image(),
       cardImageAlt: z.string(),
     }),
 });
 
-// DOCS COLLECTION (Starlight)
 const docsCollection = defineCollection({
-  // If you’re actually using Starlight docs:
   schema: docsSchema(),
 });
 
 export const collections = {
-  // If you really need the docs collection:
   docs: docsCollection,
   products: productsCollection,
   blog: blogCollection,

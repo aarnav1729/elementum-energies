@@ -1,4 +1,5 @@
 ---
+// src/components/sections/navbar&footer/FooterSection.astro
 import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import EmailFooterInput from "@components/ui/forms/input/EmailFooterInput.astro";
 import enStrings from "@utils/navigation.ts";
@@ -6,10 +7,9 @@ import frStrings from "@utils/fr/navigation.ts";
 import Icon from "@components/ui/icons/Icon.astro";
 import { SITE } from "@data/constants";
 
-// Instead of importing BrandLogo, we import tLogo
-import tLogo from "@components/t.png";
+// Import tLogo with the ?url suffix so it resolves to a string URL.
+import tLogo from "@components/t.png?url";
 
-// Select the correct translation based on the page's lang prop:
 const strings = Astro.currentLocale === "fr" ? frStrings : enStrings;
 
 const sectionThreeTitle: string =
@@ -26,7 +26,7 @@ const crafted: string =
   <div class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-screen-2xl">
     <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
       <div class="col-span-full lg:col-span-1">
-        <!-- Use the imported tLogo image -->
+        <!-- Use the TLogo image via an img tag -->
         <img
           src={tLogo}
           alt="Elementum Energies"
@@ -95,10 +95,12 @@ const crafted: string =
         </FooterSocialLink>
       </div>
     </div>
-    <script>
+    <script is:inline>
       const year = new Date().getFullYear();
       const element = document.getElementById("current-year");
-      element.innerText = year.toString();
+      if (element) {
+        element.innerText = year.toString();
+      }
     </script>
   </div>
 </footer>

@@ -1,7 +1,6 @@
 ---
+// src/pages/index.astro
 import MainLayout from "@/layouts/MainLayout.astro";
-
-// Sections (you can remove or rearrange any of these as desired)
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
@@ -17,50 +16,60 @@ import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 import construction from "@images/construction-image.avif";
 
-// Example data placeholders
-import faqs from "@data/faqs.json"; // If you wish to keep an FAQ section
-import { partnersData } from "@/data_files/constants"; // Adjust partner data as needed
+import { partnersData } from "@/data_files/constants";
 
-// Avatar placeholders for the Testimonials Section
-const avatarSrcs: Array<string> = [
+const avatarSrcs: string[] = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
 ];
 
-// “Why Choose Us” bullets from client info
 const whyChooseUs = [
   {
     question: "Quality Products",
-    answer:
-      "We only offer products that meet strict industry standards, ensuring reliability and longevity.",
+    answer: "We only offer products that meet strict industry standards, ensuring reliability and longevity.",
   },
   {
     question: "Customer-Centric Service",
-    answer:
-      "Our team is dedicated to understanding your needs and providing tailored solutions that save you time and money.",
+    answer: "Our team is dedicated to understanding your needs and providing tailored solutions that save you time and money.",
   },
   {
     question: "Fast & Reliable Delivery",
-    answer:
-      "With our robust supply chain, we guarantee fast and reliable delivery for projects of any scale.",
+    answer: "With our robust supply chain, we guarantee fast and reliable delivery for projects of any scale.",
   },
   {
     question: "Competitive Pricing",
-    answer:
-      "We offer the best prices without compromising on quality, helping you maintain cost-effective operations.",
+    answer: "We offer the best prices without compromising on quality, helping you maintain cost-effective operations.",
   },
 ];
+
+const features = [
+  {
+    heading: "Industry Expertise",
+    content: "Years of experience delivering products and services that meet the highest standards for safety and efficiency.",
+    svg: "check-circle",
+  },
+  {
+    heading: "Wide Product Range",
+    content: "Mechanical, electrical, and instrumentation items from reputable manufacturers ensure quality and reliability.",
+    svg: "check-circle",
+  },
+  {
+    heading: "Global Reach",
+    content: "Supporting sectors around the world with robust supply chain capabilities and reliable distribution networks.",
+    svg: "check-circle",
+  },
+];
+
 ---
 
 <MainLayout>
-  <!-- Hero Section -->
   <HeroSection
-    title=`Elementum Energies<br class="hidden sm:block" />
+    title={`Elementum Energies<br class="hidden sm:block" />
            <span class="text-crimson dark:text-amber">
              Innovative. Reliable. Sustainable.
-           </span>`
+           </span>`}
     subTitle="Leading provider of industrial solutions for Oil & Gas, Refinery & Petrochemical, Manufacturing, Marine, Mining, Construction, Agriculture, and more."
     primaryBtn="Explore Our Products"
     primaryBtnURL="/products"
@@ -68,56 +77,33 @@ const whyChooseUs = [
     secondaryBtnURL="/services"
     withReview={true}
     avatars={avatarSrcs}
-    rating=`<span class="font-bold">5.0</span> / 5`
+    rating={`<span class="font-bold">5.0</span> / 5`}
     starCount={5}
-    reviews=`Rated Highly by Clients Worldwide`
+    reviews="Rated Highly by Clients Worldwide"
     src={heroImage}
     alt="Elementum Energies industrial product lineup"
   />
 
-  <!-- Trusted by Industry (Partners/Clients) -->
   <ClientsSection
     title="Serving Industries Worldwide"
     subTitle="Elementum Energies supports businesses in Oil & Gas, Refinery & Petrochemical, Manufacturing, Marine, Mining, Construction, and more."
     partners={partnersData}
   />
 
-  <!-- Core Features/Highlights -->
   <FeaturesGeneral
     title="Driving Safety, Efficiency & Sustainability"
     subTitle="Elementum Energies offers cost-effective solutions tailored to the diverse needs of our clients. Partner with us to enhance operational performance in the most demanding environments."
     src={featureImage}
     alt="Elementum Energies product highlights"
-    features={[
-      {
-        heading: "Industry Expertise",
-        description:
-          "Years of experience delivering products and services that meet the highest standards for safety and efficiency.",
-        icon: "check-circle",
-      },
-      {
-        heading: "Wide Product Range",
-        description:
-          "Mechanical, electrical, and instrumentation items from reputable manufacturers ensure quality and reliability.",
-        icon: "check-circle",
-      },
-      {
-        heading: "Global Reach",
-        description:
-          "Supporting sectors around the world with robust supply chain capabilities and reliable distribution networks.",
-        icon: "check-circle",
-      },
-    ]}
+    features={features}
   />
 
-  <!-- Feature Tabs Section (optional) -->
   <FeaturesNavs
-    title=`Solutions Built for <span class="text-yellow-500 dark:text-yellow-400">Your</span> Industry`
+    title={`Solutions Built for <span class="text-yellow-500 dark:text-yellow-400">Your</span> Industry`}
     tabs={[
       {
         heading: "Diverse Industries",
-        content:
-          "From Oil & Gas to Agriculture, we ensure every client’s unique needs are met with top-tier products and services.",
+        content: "From Oil & Gas to Agriculture, we ensure every client’s unique needs are met with top-tier products and services.",
         svg: "tools",
         src: tools,
         alt: "Yellow and black heavy equipment on brown grass field",
@@ -125,8 +111,7 @@ const whyChooseUs = [
       },
       {
         heading: "Efficient Management",
-        content:
-          "Manage your supply chain, inventory, and operations seamlessly with our dedicated support and distribution services.",
+        content: "Manage your supply chain, inventory, and operations seamlessly with our dedicated support and distribution services.",
         svg: "dashboard",
         src: dashboard,
         alt: "An intuitive operations dashboard",
@@ -134,8 +119,7 @@ const whyChooseUs = [
       },
       {
         heading: "Sustainable Future",
-        content:
-          "Our commitment to sustainability drives innovation across our product range, ensuring a safer, greener tomorrow.",
+        content: "Our commitment to sustainability drives innovation across our product range, ensuring a safer, greener tomorrow.",
         svg: "house",
         src: construction,
         alt: "Construction solutions with emphasis on safety and sustainability",
@@ -143,7 +127,6 @@ const whyChooseUs = [
     ]}
   />
 
-  <!-- Testimonials (optional) -->
   <TestimonialsSection
     title="Committed to Excellence"
     subTitle="Hear how we’ve helped clients around the globe streamline operations and maintain the highest safety standards."
@@ -177,7 +160,6 @@ const whyChooseUs = [
     ]}
   />
 
-  <!-- After: Wrap your array in an object matching FaqGroup -->
   <FAQ
     title="Why Choose<br />Elementum Energies?"
     faqs={{
@@ -186,7 +168,6 @@ const whyChooseUs = [
     }}
   />
 
-  <!-- Mission/Vision CTA Section -->
   <HeroSectionAlt
     title="Our Mission & Vision"
     subTitle="Mission: To build long-lasting relationships with our clients based on trust, quality, and performance. Vision: To become the industry’s leading supplier of industrial products, known for our commitment to quality, customer satisfaction, and sustainable practices."

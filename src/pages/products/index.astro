@@ -1,4 +1,5 @@
 ---
+// src/pages/products/index.astro
 import MainLayout from "@/layouts/MainLayout.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "@components/ui/cards/CardSmall.astro";
@@ -9,21 +10,18 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Fetch all product .md entries in "en/" directory
 const products: CollectionEntry<"products">[] = (
   await getCollection("products", ({ id }) => id.startsWith("en/"))
 ).sort((a, b) => a.data.main.id - b.data.main.id);
 
-// Page heading and subtitle
 const title: string = "Products";
 const subTitle: string =
   "Discover the comprehensive industrial solutions from Elementum Energies—from pipelines and fittings to integrated refinery systems.";
-  
-// Example testimonials
+
 const testimonials = [
   {
     content:
-      " \"Elementum Energies’ solutions have transformed our operations. Their pipes, fittings, and integrated systems deliver unmatched performance and reliability.\" ",
+      "Elementum Energies’ solutions have transformed our operations. Their pipes, fittings, and integrated systems deliver unmatched performance and reliability.",
     author: "Jason Clark",
     role: "Site Foreman | TopBuild",
     avatarSrc:
@@ -32,7 +30,7 @@ const testimonials = [
   },
   {
     content:
-      " \"The breadth of products offered by Elementum Energies—from flanges to high-performance pumps—has made them our trusted partner for all our industrial needs.\" ",
+      "The breadth of products offered by Elementum Energies—from flanges to high-performance pumps—has made them our trusted partner for all our industrial needs.",
     author: "Maria Gonzalez",
     role: "Interior Designer | Creative Spaces",
     avatarSrc:
@@ -41,7 +39,7 @@ const testimonials = [
   },
   {
     content:
-      " \"After 15 years in construction, I can say with confidence that Elementum Energies delivers quality that stands the test of time. Their integrated solutions are second to none.\" ",
+      "After 15 years in construction, I can say with confidence that Elementum Energies delivers quality that stands the test of time. Their integrated solutions are second to none.",
     author: "Richard Kim",
     role: "Master Carpenter | WoodWright",
     avatarSrc:
@@ -87,8 +85,6 @@ const pageTitle: string = `Products | ${SITE.title}`;
       </div>
       <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
     </div>
-
-    <!-- Product Grid -->
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {products.map((item, index) => {
         const position = index % 4;
@@ -100,8 +96,6 @@ const pageTitle: string = `Products | ${SITE.title}`;
       })}
     </section>
   </div>
-
-  <!-- Features/Stats Section -->
   <FeaturesStatsAlt
     title="Why Choose Elementum Energies?"
     subTitle="From pipelines to integrated refinery systems, our products are engineered for precision and built to last."
@@ -111,7 +105,8 @@ const pageTitle: string = `Products | ${SITE.title}`;
       "Unmatched support and industry expertise.",
     ]}
   />
-
-  <!-- Testimonials Section -->
-  <TestimonialsSectionAlt id="testimonials" title="What Our Customers Say" testimonials={testimonials} />
+  <TestimonialsSectionAlt
+    title="What Our Customers Say"
+    testimonials={testimonials}
+  />
 </MainLayout>
