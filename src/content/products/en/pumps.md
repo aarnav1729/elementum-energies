@@ -5,8 +5,8 @@ main:
   id: 10
   content: |
     At Elementum Energies, we offer a diverse selection of pumps—including centrifugal, positive displacement, submersible, diaphragm, and screw pumps—designed to deliver reliable and efficient fluid movement in industrial applications.
-  imgCard: "@/images/v1.avif"
-  imgMain: "@/images/v2.avif"
+  imgCard: "@/images/v1.jpg"
+  imgMain: "@/images/v2.jpg"
   imgAlt: "Industrial pumps"
 tabs:
   - id: "tabs-with-card-item-1"
