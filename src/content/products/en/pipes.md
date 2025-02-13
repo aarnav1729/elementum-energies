@@ -5,8 +5,8 @@ main:
   id: 1
   content: |
     Elementum Energies is a leading provider of high-quality carbon, stainless, duplex and super duplex steel pipes, catering to the diverse needs of various industries. Our range consists of 1/2" to 48" in different material grades and standards.
-  imgCard: "@/images/product-image-1.avif"
-  imgMain: "@/images/product-image-1.avif"
+  imgCard: "@/images/v1.jpg"
+  imgMain: "@/images/v2.jpg"
   imgAlt: "High-quality industrial steel pipes"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -41,6 +41,6 @@ specificationsLeft:
   - title: "Schedules"
     subTitle: "SCH. 20 – SCH. XXS"
 blueprints:
-  first: "@/images/product-image-1.avif"
-  second: "@/images/product-image-1.avif"
+  first: "@/images/blueprint-1.avif"
+  second: "@/images/blueprint-2.avif"
 ---

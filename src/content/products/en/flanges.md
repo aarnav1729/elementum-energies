@@ -5,8 +5,8 @@ main:
   id: 3
   content: |
     Elementum Energies is a prominent supplier of premium carbon and stainless steel flanges. Our range covers sizes from 1/2" to 36", available in various material grades and standards, and is approved by major Oil & Gas companies.
-  imgCard: "@/images/product-image-1.avif"
-  imgMain: "@/images/product-image-1.avif"
+  imgCard: "@/images/v1.jpg"
+  imgMain: "@/images/v2.jpg"
   imgAlt: "Industrial flanges"
 tabs:
   - id: "tabs-with-card-item-1"
