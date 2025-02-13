@@ -1,42 +1,43 @@
 // Define data structures for services and success stories
 export const servicesData = [
   {
-    title: "Explore Advice and Explanations",
+    title: "Explore Expert Insights",
     description:
-      "Dive deep into helpful guides and explanations for all of ScrewFast's features",
+      "Dive deep into technical guides and best practices for maximizing your industrial operations with Elementum Energies' solutions.",
     icon: "guides",
     url: "#",
   },
   {
-    title: "Discover Integrations",
+    title: "Discover Seamless Solutions",
     description:
-      "Supercharge Your Workflow. Seamless integrations with all your favorite tools",
+      "Streamline your industrial processes with integrated solutions designed to enhance efficiency and performance.",
     icon: "puzzle",
     url: "#",
   },
   {
-    title: "Expert Services",
-    description: "Go beyond tools with ScrewFast's expert services",
+    title: "Expert Industrial Services",
+    description:
+      "Enhance your operations with our comprehensive suite of expert services, from consulting to custom solution delivery.",
     icon: "rocket",
     url: "#",
   },
   {
-    title: "Cutting-Edge Tools",
+    title: "Innovative Industrial Products",
     description:
-      "Build Smarter, Faster. Experience next-level efficiency with ScrewFast's cutting-edge construction tools",
+      "Empower your operations with our state-of-the-art products engineered for reliability, safety, and performance.",
     icon: "hammer",
     url: "#",
   },
   {
-    title: "Simple Plans",
+    title: "Tailored Solutions",
     description:
-      "Boost your efficiency with ScrewFast's straightforward, value-driven plans",
+      "Optimize your operations with clear, cost-effective strategies and plans designed to meet your unique industrial needs.",
     icon: "sparks",
     url: "#",
   },
   {
-    title: "Community Forum",
-    description: "Learn, share, and connect with other ScrewFast users",
+    title: "Industry Network",
+    description: "Connect, collaborate, and share success stories with professionals across the industrial sector.",
     icon: "community",
     url: "#",
   },
@@ -46,9 +47,9 @@ export const successStoriesData = [
   {
     image:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    alt: "Image Description",
+    alt: "Industry professional collaborating in a modern facility",
     description:
-      "See how ScrewFast has empowered businesses of all sizes to achieve outstanding results.",
+      "See how Elementum Energies has empowered industrial clients worldwide to enhance operational performance and efficiency.",
     learnMoreUrl: "#",
   },
 ];
