@@ -9,15 +9,14 @@ import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "@images/hero-image.avif";
+import heroImage from "@images/hero-3.jpeg";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
-import featureImage from "@images/features-image.avif";
-import construction from "@images/construction-image.avif";
-import tools from "@images/automated-tools.avif";
-import dashboard from "@images/dashboard-image.avif";
+import featureImage from "@images/hero-2.jpeg";
+import construction from "@images/hero-5.jpeg";
+import tools from "@images/hero-4.jpeg";
+import dashboard from "@images/hero-1.jpeg";
 import { partnersData } from "@/data_files/constants";
 
 const avatarSrcs: Array<string> = [
@@ -30,9 +29,8 @@ const avatarSrcs: Array<string> = [
 
 <MainLayout>
 
-
   <HeroSection
-    title=`Empower Your Operations with <span class="text-yellow-500 dark:text-yellow-400">Elementum Energies</span>`
+    title=`Empower Your Operations with <span class="text-orange-500 dark:text-orange-400">Elementum Energies LLC</span>`
     subTitle="Innovative, reliable industrial solutions tailored for your operational needs."
     primaryBtn="Explore Our Solutions"
     primaryBtnURL="/products"
@@ -55,14 +53,14 @@ const avatarSrcs: Array<string> = [
 
   <FeaturesGeneral
     title="Delivering Industrial Excellence"
-    subTitle="At Elementum Energies, we overcome the challenges of modern industry with innovative solutions and exceptional service. Our products and services are engineered to drive efficiency and safety in every application."
+    subTitle="At Elementum Energies LLC, we overcome the challenges of modern industry with innovative solutions and exceptional service. Our products and services are engineered to drive efficiency and safety in every application."
     src={featureImage}
     alt="Showcase of Elementum Energies industrial solutions"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Elementum Energies</span>' offerings to perfectly suit your industrial requirements.`
+    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">Elementum Energies LLC</span>' offerings to perfectly suit your industrial requirements.`
     tabs={[
       {
         heading: "Robust Industrial Products",
@@ -95,11 +93,11 @@ const avatarSrcs: Array<string> = [
 
   <TestimonialsSection
     title="Accelerate Your Operations"
-    subTitle="At Elementum Energies, our prompt service and expert solutions empower you to achieve operational efficiency from day one."
+    subTitle="At Elementum Energies LLC, our prompt service and expert solutions empower you to achieve operational efficiency from day one."
     testimonials={[
       {
         content:
-          "Elementum Energies significantly boosted our operational efficiency. Their reliable solutions and expert support transformed our processes and delivered outstanding results.",
+          "Elementum Energies LLC significantly boosted our operational efficiency. Their reliable solutions and expert support transformed our processes and delivered outstanding results.",
         author: "Samantha Ruiz",
         role: "Chief Operating Officer | ConstructIt Inc.",
         avatarSrc:
@@ -135,7 +133,7 @@ const avatarSrcs: Array<string> = [
 
   <HeroSectionAlt
     title="Let's Build the Future Together"
-    subTitle="Discover how Elementum Energies is driving industrial innovation through advanced solutions and exceptional service."
+    subTitle="Discover how Elementum Energies LLC is driving industrial innovation through advanced solutions and exceptional service."
     url="/contact"
   />
 </MainLayout>

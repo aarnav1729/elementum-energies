@@ -1,6 +1,7 @@
 ---
 title: "Motors & Blowers"
 description: "High-performance motors and blowers for demanding industrial applications."
+category: "refinery"
 main:
   id: 9
   content: |

@@ -1,6 +1,7 @@
 ---
 title: "Rigging Equipment"
 description: "Dependable rigging equipment for safe lifting and hoisting operations."
+category: "refinery"
 main:
   id: 15
   content: |

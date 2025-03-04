@@ -1,6 +1,7 @@
 ---
 title: "Personal Protective Equipment (PPE)"
 description: "High-quality PPE for maximum industrial safety and protection."
+category: "refinery"
 main:
   id: 12
   content: |

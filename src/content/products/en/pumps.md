@@ -1,6 +1,7 @@
 ---
 title: "Pumps"
 description: "High-performance pumps engineered for efficiency and durability."
+category: "refinery"
 main:
   id: 10
   content: |

@@ -1,6 +1,7 @@
 ---
 title: "Fluid Dynamics & Measurement"
 description: "Advanced solutions for precise fluid control and measurement."
+category: "refinery"
 main:
   id: 8
   content: |

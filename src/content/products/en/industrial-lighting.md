@@ -1,6 +1,7 @@
 ---
 title: "Industrial Lighting"
 description: "High-quality lighting solutions built for demanding industrial environments."
+category: "refinery"
 main:
   id: 18
   content: |

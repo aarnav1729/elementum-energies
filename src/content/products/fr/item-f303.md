@@ -1,6 +1,7 @@
 ---
 title: "SF-FN F303"
 description: "Boulons hexagonaux"
+category: "oil-gas"
 main:
   id: 4
   content: |

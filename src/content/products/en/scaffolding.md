@@ -1,6 +1,7 @@
 ---
 title: "Scaffolding"
 description: "Robust scaffolding solutions for safe and efficient construction."
+category: "refinery"
 main:
   id: 16
   content: |

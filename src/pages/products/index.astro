@@ -1,130 +1,831 @@
 ---
-// Importing necessary components
 import MainLayout from "@/layouts/MainLayout.astro";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
-import CardSmall from "@components/ui/cards/CardSmall.astro";
-import CardWide from "@components/ui/cards/CardWide.astro";
-import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
-import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
-
-// Importing necessary functions from Astro
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Fetching all the product related content and sorting it by main.id
-const product: CollectionEntry<"products">[] = (
-  await getCollection("products", ({ id }) => {
-    return id.startsWith("en/");
-  })
-).sort(
-  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
-    a.data.main.id - b.data.main.id,
-);
-
-// Define variables for page content
-const title: string = "Products";
-const subTitle: string =
-  "Explore the extensive range of high-quality industrial products from Elementum Energies, engineered for durability, precision, and performance across sectors such as Oil & Gas and Refinery & Petrochemical.";
-
-// Testimonial data that will be rendered in the component
-const testimonials = [
+// --- MOCK DATA ---
+// Products are split into two main categories: "oil-gas" and "refinery".
+// All details and specifications (as provided) are now included.
+const products = [
   {
-    content:
-      "“Since adopting Elementum Energies’ industrial solutions, our operational efficiency has soared. Their reliable pipes, fittings, and other products consistently deliver exceptional performance under even the most demanding conditions.”",
-    author: "Jason Clark",
-    role: "Operations Manager | TopBuild",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Profile image of Jason Clark",
+    id: 1,
+    category: "oil-gas",
+    title: "Oil & Gas Pipe 300",
+    description: "High-quality seamless pipe for oil & gas applications.",
+    main: {
+      imgMain: "/images/oilpipe.jpg",
+      imgAlt: "Oil & Gas Pipe 300",
+      content: "This pipe is designed for harsh oil & gas environments."
+    },
+    longDescription: {
+      title: "Oil & Gas Pipe 300",
+      subTitle: "Engineered for extreme conditions in the oil & gas industry.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [
+      { title: "Material", subTitle: "Carbon Steel" },
+      { title: "Size", subTitle: "300mm" }
+    ],
+    specificationsLeft: [
+      { title: "Grades", subTitle: "A53/A106" },
+      { title: "Sizes", subTitle: '1/2" - 24"' }
+    ],
+    specificationsRight: [
+      { title: "Schedules", subTitle: "SCH. 20 - SCH. XXS" }
+    ],
+    blueprints: {
+      first: "/images/blueprint-oil-1.avif",
+      second: "/images/blueprint-oil-2.avif"
+    }
   },
   {
-    content:
-      "“As a facility manager, I require industrial products that combine quality with reliability. Elementum Energies’ comprehensive product range has been a game-changer, ensuring our operations run smoothly while exceeding safety standards.”",
-    author: "Maria Gonzalez",
-    role: "Facility Manager | Creative Spaces",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Profile image of Maria Gonzalez",
+    id: 2,
+    category: "refinery",
+    title: "Refinery Valve X",
+    description: "High-performance valve for refinery systems.",
+    main: {
+      imgMain: "/images/valve.jpg",
+      imgAlt: "Refinery Valve X",
+      content: "This valve ensures optimal flow and control in refinery operations."
+    },
+    longDescription: {
+      title: "Refinery Valve X",
+      subTitle: "Precision engineered for refinery applications.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [
+      { title: "Type", subTitle: "Ball Valve" },
+      { title: "Material", subTitle: "Stainless Steel" }
+    ],
+    specificationsLeft: [
+      { title: "Size Range", subTitle: '1/2" - 60"' },
+      { title: "Ratings", subTitle: "150 - 2500 ANSI" }
+    ],
+    specificationsRight: [
+      { title: "Standards", subTitle: "API 600" }
+    ],
+    blueprints: {
+      first: "/images/blueprint-valve-1.avif",
+      second: "/images/blueprint-valve-2.avif"
+    }
   },
   {
-    content:
-      "“After years in the industry, I can confidently say that Elementum Energies delivers unmatched quality. Their industrial products—from high-grade pipes to precision fittings—consistently perform to the highest standards.”",
-    author: "Richard Kim",
-    role: "Senior Engineer | WoodWright",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Profile image of Richard Kim",
+    id: 3,
+    category: "oil-gas",
+    title: "Oil & Gas Fitting A",
+    description: "Premium fitting for oil & gas pipelines.",
+    main: {
+      imgMain: "/images/fitting.jpg",
+      imgAlt: "Oil & Gas Fitting A",
+      content: "Durable fitting that ensures secure connections in oil & gas pipelines."
+    },
+    longDescription: {
+      title: "Oil & Gas Fitting A",
+      subTitle: "Engineered to provide a leak-free seal in harsh conditions.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Type", subTitle: "Buttweld Fitting" }],
+    specificationsLeft: [{ title: "Material", subTitle: "Carbon Steel" }],
+    specificationsRight: [{ title: "Sizes", subTitle: '1/2" - 36"' }],
+    blueprints: {
+      first: "/images/blueprint-fitting-1.avif",
+      second: "/images/blueprint-fitting-2.avif"
+    }
   },
+  {
+    id: 4,
+    category: "refinery",
+    title: "Refinery Fitting B",
+    description: "Robust fitting designed for refinery operations.",
+    main: {
+      imgMain: "/images/refineryfitting.jpg",
+      imgAlt: "Refinery Fitting B",
+      content: "Ensures secure and efficient connections in refinery systems."
+    },
+    longDescription: {
+      title: "Refinery Fitting B",
+      subTitle: "Reliable fitting that meets international standards for refinery applications.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Type", subTitle: "Welded Fitting" }],
+    specificationsLeft: [{ title: "Material", subTitle: "Stainless Steel" }],
+    specificationsRight: [{ title: "Sizes", subTitle: '6" - 24"' }],
+    blueprints: {
+      first: "/images/blueprint-refineryfitting-1.avif",
+      second: "/images/blueprint-refineryfitting-2.avif"
+    }
+  },
+  // ----- Additional Oil & Gas Products -----
+  {
+    id: 5,
+    category: "oil-gas",
+    title: "Pipes",
+    description: "High-quality carbon, stainless, duplex and super duplex steel pipes.",
+    main: {
+      imgMain: "/images/oilpipes-detail.jpg",
+      imgAlt: "Oil & Gas Pipes",
+      content: "Our pipes range from 1/2\" to 48\" in various material grades, approved globally."
+    },
+    longDescription: {
+      title: "Oil & Gas Pipes",
+      subTitle: "Includes Carbon Steel Seamless, Welded (ERW/HFW & LSAW), Stainless Steel, Duplex & Super Duplex.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Carbon Steel Seamless, Welded, Stainless Steel, Duplex & Super Duplex" }],
+    specificationsLeft: [
+      { title: "Grades", subTitle: "A53/A106/API 5L Gr. B, Gr. X42/X52/X65, A333 Gr. 6" },
+      { title: "Sizes", subTitle: '1/2" – 24" (PSL1 & PSL2)' }
+    ],
+    specificationsRight: [{ title: "Schedules", subTitle: "SCH. 20 – SCH. XXS" }],
+    blueprints: {
+      first: "/images/blueprint-oilpipe1.avif",
+      second: "/images/blueprint-oilpipe2.avif"
+    }
+  },
+  {
+    id: 6,
+    category: "oil-gas",
+    title: "Fittings",
+    description: "Premium fittings meeting global Oil & Gas standards.",
+    main: {
+      imgMain: "/images/oilfittings-detail.jpg",
+      imgAlt: "Oil & Gas Fittings",
+      content: "Range from 1/2\" to 36\" including buttweld and forged types."
+    },
+    longDescription: {
+      title: "Oil & Gas Fittings",
+      subTitle: "Carbon Steel Buttweld, Stainless Steel Buttweld, Duplex Buttweld, and Forged Fittings.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Elbows, Tees, Reducers, Caps, Nipples" }],
+    specificationsLeft: [
+      { title: "Grades", subTitle: "A234 WPB & WPL6; A403 WP 304/304L & 316/316L; A815 S31803/ S32205" },
+      { title: "Sizes", subTitle: '1/2" – 36"' }
+    ],
+    specificationsRight: [{ title: "Types", subTitle: "Buttweld & Forged" }],
+    blueprints: {
+      first: "/images/blueprint-oilfittings1.avif",
+      second: "/images/blueprint-oilfittings2.avif"
+    }
+  },
+  {
+    id: 9,
+    category: "oil-gas",
+    title: "Flanges",
+    description: "Premium carbon and stainless steel flanges in various sizes.",
+    main: {
+      imgMain: "/images/flanges.jpg",
+      imgAlt: "Oil & Gas Flanges",
+      content: "Flanges approved by major Oil & Gas companies and available in multiple types."
+    },
+    longDescription: {
+      title: "Oil & Gas Flanges",
+      subTitle: "Available as Carbon Steel and Stainless Steel in Blind, Slip-On, Weld Neck, Threaded & Socket Weld options.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Carbon Steel & Stainless Steel Flanges" }],
+    specificationsLeft: [
+      { title: "Grades", subTitle: "A105N, A350 Gr. LF2 CL.1" },
+      { title: "Sizes", subTitle: '1/2" – 36"' }
+    ],
+    specificationsRight: [
+      { title: "Types", subTitle: "Blind, Slip-On, Weld Neck, Threaded, Socket Weld" },
+      { title: "Class", subTitle: "CL. 150 – CL. 1500" }
+    ],
+    blueprints: {
+      first: "/images/blueprint-flanges1.avif",
+      second: "/images/blueprint-flanges2.avif"
+    }
+  },
+  {
+    id: 10,
+    category: "oil-gas",
+    title: "Fasteners",
+    description: "High-quality carbon & stainless steel fasteners.",
+    main: {
+      imgMain: "/images/fasteners.jpg",
+      imgAlt: "Oil & Gas Fasteners",
+      content: "Includes stud bolts, hex bolts, U-bolts, anchor bolts, eye bolts, nuts, washers, and pipe clamps."
+    },
+    longDescription: {
+      title: "Oil & Gas Fasteners",
+      subTitle: "Available in various grades and sizes for diverse applications.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Stud Bolts, Hex. Bolts, U-bolts, Anchor Bolts, Eye Bolts, Nuts, Washers, Pipe Clamps" }],
+    specificationsLeft: [
+      { title: "Grades", subTitle: "Bolts: A193/A320; Nuts: A194 (various grades)" }
+    ],
+    specificationsRight: [{ title: "Sizes", subTitle: '1/4” – 4”' }],
+    blueprints: {
+      first: "/images/blueprint-fasteners1.avif",
+      second: "/images/blueprint-fasteners2.avif"
+    }
+  },
+  {
+    id: 11,
+    category: "oil-gas",
+    title: "Gaskets",
+    description: "High-quality gaskets and static sealing elements.",
+    main: {
+      imgMain: "/images/gaskets.jpg",
+      imgAlt: "Oil & Gas Gaskets",
+      content: "Offering spiral wound, non-asbestos soft cut, ring joint, and flange isolation kits."
+    },
+    longDescription: {
+      title: "Oil & Gas Gaskets",
+      subTitle: "Designed for durability and performance under harsh conditions.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Spiral Wound, Non-Asbestos Soft Cut, Ring Joint, Flange Isolation Kits" }],
+    specificationsLeft: [{ title: "Grades", subTitle: "Carbon Steel, Stainless Steel, Neoprene, EPDM, Viton, NBR, Silicon" }],
+    specificationsRight: [{ title: "Sizes", subTitle: '1/2" – 48"' }],
+    blueprints: {
+      first: "/images/blueprint-gaskets1.avif",
+      second: "/images/blueprint-gaskets2.avif"
+    }
+  },
+  {
+    id: 12,
+    category: "oil-gas",
+    title: "Dish Heads",
+    description: "Superior dish heads available in a full range of sizes and thicknesses.",
+    main: {
+      imgMain: "/images/dishheads.jpg",
+      imgAlt: "Oil & Gas Dish Heads",
+      content: "Dish heads from 500mm to 7200mm diameter and 5mm to 115mm thickness."
+    },
+    longDescription: {
+      title: "Oil & Gas Dish Heads",
+      subTitle: "Available as Ellipsoidal, Torispherical, Dished Only, Toriconical, Flanged Only and Hemispherical.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Ellipsoidal, Torispherical, Dished Only, Toriconical, Flanged Only, Hemispherical" }],
+    specificationsLeft: [{ title: "Grades", subTitle: "Carbon Steel, Clad Steel, Low Alloy, Stainless, Duplex, Nickel Alloys" }],
+    specificationsRight: [
+      { title: "Sizes", subTitle: "500mm – 7200mm ID" },
+      { title: "Thickness", subTitle: "5mm – 115mm" }
+    ],
+    blueprints: {
+      first: "/images/blueprint-dishheads1.avif",
+      second: "/images/blueprint-dishheads2.avif"
+    }
+  },
+  {
+    id: 13,
+    category: "oil-gas",
+    title: "Pressure Vessels",
+    description: "Custom-designed pressure vessels for industrial applications.",
+    main: {
+      imgMain: "/images/pressure-vessels.jpg",
+      imgAlt: "Oil & Gas Pressure Vessels",
+      content: "Designed and fabricated to meet ASME standards for diverse industrial needs."
+    },
+    longDescription: {
+      title: "Pressure Vessels",
+      subTitle: "Full range of design, engineering, and fabrication services for certified vessels.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Applications", subTitle: "Separators, Drums, Filter Vessels, Buffer Degreasers, Deaerators, Columns, Pig Launchers, Receivers, Heat Exchangers, Stacks, Storage Tanks" }],
+    specificationsLeft: [{ title: "Certifications", subTitle: "ASME Section VIII, Division 1 & 2, National Board Certified" }],
+    specificationsRight: [{ title: "Material", subTitle: "Various high-grade steels" }],
+    blueprints: {
+      first: "/images/blueprint-pressure1.avif",
+      second: "/images/blueprint-pressure2.avif"
+    }
+  },
+  {
+    id: 14,
+    category: "oil-gas",
+    title: "Gratings",
+    description: "High-quality electro-forged gratings for safe industrial access.",
+    main: {
+      imgMain: "/images/gratings.jpg",
+      imgAlt: "Oil & Gas Gratings",
+      content: "Custom fabricated to meet NAAMM standards and application needs."
+    },
+    longDescription: {
+      title: "Gratings",
+      subTitle: "Fabricated gratings, panels, stair treads, handrail systems, and caged ladders.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Fabricated Gratings, Grating Panels, Stair Treads, Handrail Systems, Caged Ladders" }],
+    specificationsLeft: [{ title: "Customization", subTitle: "Available in various configurations" }],
+    specificationsRight: [{ title: "Standards", subTitle: "NAAMM compliant" }],
+    blueprints: {
+      first: "/images/blueprint-gratings1.avif",
+      second: "/images/blueprint-gratings2.avif"
+    }
+  },
+  {
+    id: 15,
+    category: "oil-gas",
+    title: "Welding Equipment & Consumables",
+    description: "Premium welding machines, accessories, and consumables.",
+    main: {
+      imgMain: "/images/welding-equipment.jpg",
+      imgAlt: "Welding Equipment",
+      content: "From portable machines to automated solutions, with top-quality welding rods, wires, and more."
+    },
+    longDescription: {
+      title: "Welding Equipment & Consumables",
+      subTitle: "A full range of welding and cutting equipment with quality consumables.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Brands", subTitle: "ESAB, Lincoln Electric, Miller, ADOR, Mitre, Hypertherm" }],
+    specificationsLeft: [{ title: "Equipment Types", subTitle: "Welding and Cutting Machines" }],
+    specificationsRight: [{ title: "Consumables", subTitle: "Welding rods, wires, and accessories" }],
+    blueprints: {
+      first: "/images/blueprint-welding1.avif",
+      second: "/images/blueprint-welding2.avif"
+    }
+  },
+  {
+    id: 16,
+    category: "oil-gas",
+    title: "Workshop Tools & Consumables",
+    description: "Comprehensive industrial tools and equipment for every job.",
+    main: {
+      imgMain: "/images/workshop-tools.jpg",
+      imgAlt: "Workshop Tools",
+      content: "Power tools, hand tools, and testing equipment to boost productivity."
+    },
+    longDescription: {
+      title: "Workshop Tools & Consumables",
+      subTitle: "High performance tools for surface preparation, testing, and material handling.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Power Tools, Hand Tools, Testing Equipment, Material Handling Equipment" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Dewalt, Ridgid, Fluke, Extech, Flir, 3M" }],
+    specificationsRight: [{ title: "Applications", subTitle: "Construction, Maintenance, Testing" }],
+    blueprints: {
+      first: "/images/blueprint-workshop1.avif",
+      second: "/images/blueprint-workshop2.avif"
+    }
+  },
+  // ----- Additional Refinery & Petrochemical Products -----
+  {
+    id: 17,
+    category: "refinery",
+    title: "Fluid Dynamics & Measurement",
+    description: "Cutting-edge fluid dynamics and measurement solutions.",
+    main: {
+      imgMain: "/images/fluid-dynamics.jpg",
+      imgAlt: "Fluid Dynamics & Measurement",
+      content: "Includes control valves, needle valves, relief valves, and high-accuracy gauges."
+    },
+    longDescription: {
+      title: "Fluid Dynamics & Measurement",
+      subTitle: "Covering Control Valves, Needle Valves, and Pressure/Temperature/Level transmitters.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Control Valves, Needle Valves, Pressure Vacuum Relief, Emergency Relief, Shutdown Valves" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Bray-Controls, Flowserve, Siemens, Emerson, GEMÜ, ABB" }],
+    specificationsRight: [{ title: "Applications", subTitle: "Chemical, Petrochemical, Water Treatment, Pharmaceuticals" }],
+    blueprints: {
+      first: "/images/blueprint-fluid1.avif",
+      second: "/images/blueprint-fluid2.avif"
+    }
+  },
+  {
+    id: 18,
+    category: "refinery",
+    title: "Pumps",
+    description: "High-performance pumps for demanding refinery processes.",
+    main: {
+      imgMain: "/images/pumps-detail.jpg",
+      imgAlt: "Refinery Pumps",
+      content: "Includes centrifugal, positive displacement, submersible, diaphragm, and screw pumps."
+    },
+    longDescription: {
+      title: "Pumps",
+      subTitle: "Available in various types such as Centrifugal, Positive Displacement, Submersible, Diaphragm & Screw.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Brands", subTitle: "Xylem, KSB, Flowserve, Sulzer, Wilo, EBARA, Grundfos, ProMinent" }],
+    specificationsLeft: [{ title: "Product Types", subTitle: "Centrifugal, Positive Displacement, Submersible, Diaphragm, Screw" }],
+    specificationsRight: [{ title: "Applications", subTitle: "Chemical Processing, Water Treatment, Refinery" }],
+    blueprints: {
+      first: "/images/blueprint-pumps1.avif",
+      second: "/images/blueprint-pumps2.avif"
+    }
+  },
+  {
+    id: 19,
+    category: "refinery",
+    title: "Motors & Blowers",
+    description: "Explosion-proof motors and blowers for demanding applications.",
+    main: {
+      imgMain: "/images/motors-blowers.jpg",
+      imgAlt: "Motors & Blowers",
+      content: "High-performance AC & DC motors, fans, pumps, and blowers designed for hazardous areas."
+    },
+    longDescription: {
+      title: "Motors & Blowers",
+      subTitle: "Engineered for reliability in refineries, mining, and process industries.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "AC & DC Motors, Fans, Pumps, Blowers" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Cemp, ABB, WEG, Siemens, TECO, Baldor, Howden" }],
+    specificationsRight: [{ title: "Applications", subTitle: "Industrial, Refineries, Mining, Cement" }],
+    blueprints: {
+      first: "/images/blueprint-motors1.avif",
+      second: "/images/blueprint-motors2.avif"
+    }
+  },
+  {
+    id: 20,
+    category: "refinery",
+    title: "Hoses & Couplings",
+    description: "Premium hoses and couplings engineered for high performance.",
+    main: {
+      imgMain: "/images/hoses-couplings.jpg",
+      imgAlt: "Hoses & Couplings",
+      content: "Includes hydraulic, chemical, industrial and food-grade hoses with various coupling types."
+    },
+    longDescription: {
+      title: "Hoses & Couplings",
+      subTitle: "Featuring quick connect, camlock, threaded, hydraulic, and flange couplings.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Industrial Hoses, Hydraulic Hoses, Chemical Hoses, Food & Beverage Hoses, Water Hoses; Quick Connect, Camlock, Threaded, Hydraulic, Flange Couplings" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Eaton, Gassó, Gates, Parker, HANSA‑FLEX, Enerpac, Hi-Force, ALFAGOMMA" }],
+    specificationsRight: [{ title: "Applications", subTitle: "Refineries, Chemical Processing, Industrial" }],
+    blueprints: {
+      first: "/images/blueprint-hoses1.avif",
+      second: "/images/blueprint-hoses2.avif"
+    }
+  },
+  {
+    id: 21,
+    category: "refinery",
+    title: "PPE",
+    description: "Wide selection of personal protective equipment for workforce safety.",
+    main: {
+      imgMain: "/images/ppe.jpg",
+      imgAlt: "PPE",
+      content: "Includes safety helmets, glasses, earplugs, disposable masks, gloves, boots, and coveralls."
+    },
+    longDescription: {
+      title: "PPE",
+      subTitle: "Designed to meet industry-leading safety standards.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Safety Helmets, Safety Glasses, Earplugs, Disposable Masks, Work Gloves, Safety Boots, Coveralls" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "DuPont, 3M, MSA, Honeywell, Red Wing, CAT" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-ppe1.avif",
+      second: "/images/blueprint-ppe2.avif"
+    }
+  },
+  {
+    id: 22,
+    category: "refinery",
+    title: "Fire Protection",
+    description: "Cutting-edge fire protection solutions for industrial safety.",
+    main: {
+      imgMain: "/images/fire-protection.jpg",
+      imgAlt: "Fire Protection",
+      content: "Includes fire extinguishers, suppression systems, alarms, hose reels and safety training."
+    },
+    longDescription: {
+      title: "Fire Protection",
+      subTitle: "Comprehensive solutions to safeguard against fire hazards.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Fire Extinguishers, Suppression Systems, Alarms, Hose Reels, Safety Training" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "ANSUL, Angus Fire, Honeywell, Kidde, Tyco" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-fire1.avif",
+      second: "/images/blueprint-fire2.avif"
+    }
+  },
+  {
+    id: 23,
+    category: "refinery",
+    title: "HVAC Solutions",
+    description: "Comprehensive heating, ventilation, and air conditioning solutions.",
+    main: {
+      imgMain: "/images/hvac.jpg",
+      imgAlt: "HVAC Solutions",
+      content: "Engineered for residential, commercial and industrial applications."
+    },
+    longDescription: {
+      title: "HVAC Solutions",
+      subTitle: "Efficient systems from leading brands for optimal indoor environments.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Heating Systems, Air Conditioning, Ventilation, HVAC Controls" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Friedrich, Carrier, Trane, Johnson Controls, Daikin, Samsung, LG, Mitsubishi" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-hvac1.avif",
+      second: "/images/blueprint-hvac2.avif"
+    }
+  },
+  {
+    id: 24,
+    category: "refinery",
+    title: "Rigging Equipment",
+    description: "Dependable rigging solutions for safe lifting and hoisting.",
+    main: {
+      imgMain: "/images/rigging.jpg",
+      imgAlt: "Rigging Equipment",
+      content: "Includes hoists, winches, lifting slings, hardware and inspection tools."
+    },
+    longDescription: {
+      title: "Rigging Equipment",
+      subTitle: "Engineered for high standards of safety and performance.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Hoists, Winches, Lifting Slings, Rigging Hardware, Accessories" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Crosby, Konecranes" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-rigging1.avif",
+      second: "/images/blueprint-rigging2.avif"
+    }
+  },
+  {
+    id: 25,
+    category: "refinery",
+    title: "Scaffolding",
+    description: "Robust scaffolding solutions designed for safety and productivity.",
+    main: {
+      imgMain: "/images/scaffolding.jpg",
+      imgAlt: "Scaffolding",
+      content: "Systems include frame, modular, mobile and suspended scaffolding with accessories."
+    },
+    longDescription: {
+      title: "Scaffolding",
+      subTitle: "Engineered for strong support and dependable access.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Frame, Modular, Mobile, Suspended, Accessories" }],
+    specificationsLeft: [{ title: "Applications", subTitle: "Construction, Maintenance" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-scaffolding1.avif",
+      second: "/images/blueprint-scaffolding2.avif"
+    }
+  },
+  {
+    id: 26,
+    category: "refinery",
+    title: "Computers & Printers",
+    description: "Complete range of computing, server, and printing solutions.",
+    main: {
+      imgMain: "/images/computers-printers.jpg",
+      imgAlt: "Computers & Printers",
+      content: "Includes desktops, laptops, servers, and various types of printers."
+    },
+    longDescription: {
+      title: "Computers & Printers",
+      subTitle: "Designed for performance and reliability.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Desktops, Laptops, All-in-One PCs; Tower, Rack, Blade Servers; Inkjet, Laser, Multifunction Printers" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Microsoft, HP, DELL, Lenovo, Acer, APC, Aruba, Fortinet, Cisco, NVIDIA, Logitech, Xerox, Brother, Kyocera, Toshiba" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-computers1.avif",
+      second: "/images/blueprint-computers2.avif"
+    }
+  },
+  {
+    id: 27,
+    category: "refinery",
+    title: "Industrial Lighting",
+    description: "High-quality industrial lighting solutions built for durability.",
+    main: {
+      imgMain: "/images/industrial-lighting.jpg",
+      imgAlt: "Industrial Lighting",
+      content: "Includes LED, fluorescent, flood, explosion-proof and task lights."
+    },
+    longDescription: {
+      title: "Industrial Lighting",
+      subTitle: "Optimized for visibility and safety in harsh environments.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "LED, Fluorescent, Flood, Explosion-Proof, Task Lights" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Appleton, Emerson, ABB, Philips, Siemens, GE Lighting" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-lighting1.avif",
+      second: "/images/blueprint-lighting2.avif"
+    }
+  },
+  {
+    id: 28,
+    category: "refinery",
+    title: "Material Handling",
+    description: "Efficient solutions for material movement and storage.",
+    main: {
+      imgMain: "/images/material-handling.jpg",
+      imgAlt: "Material Handling",
+      content: "Includes forklifts, conveyors, pallet jacks, cranes and automated guided vehicles."
+    },
+    longDescription: {
+      title: "Material Handling",
+      subTitle: "Engineered for optimized performance and safety.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Forklifts, Conveyors, Pallet Jacks, Cranes & Hoists, AGVs" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Hyster, Caterpillar, Toyota, Komatsu, Demag, Konecranes, Daewoo, Hoist UK" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-material1.avif",
+      second: "/images/blueprint-material2.avif"
+    }
+  },
+  {
+    id: 29,
+    category: "refinery",
+    title: "Lubricants",
+    description: "Premium industrial lubricants for high performance and longevity.",
+    main: {
+      imgMain: "/images/lubricants.jpg",
+      imgAlt: "Lubricants",
+      content: "Engineered for superior protection using top brands."
+    },
+    longDescription: {
+      title: "Lubricants",
+      subTitle: "Engineered for superior protection and efficiency under the toughest conditions.",
+      btnTitle: "Learn More",
+      btnURL: "#"
+    },
+    descriptionList: [{ title: "Product Types", subTitle: "Engine Oils, Gear Oils, Hydraulic Fluids, Industrial Greases, Specialty Lubricants" }],
+    specificationsLeft: [{ title: "Brands", subTitle: "Shell, Chevron, ExxonMobil, TOTAL, MOLYKOTE/DuPont, Lubrizol" }],
+    specificationsRight: [],
+    blueprints: {
+      first: "/images/blueprint-lubricants1.avif",
+      second: "/images/blueprint-lubricants2.avif"
+    }
+  }
 ];
 
-const pageTitle: string = `Products | ${SITE.title}`;
+const oilGasProducts = products.filter(p => p.category === "oil-gas");
+const refineryProducts = products.filter(p => p.category === "refinery");
+const pageTitle = `Products | ${SITE.title}`;
 ---
-<MainLayout
-  title={pageTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://elementumenergies.com/products",
-    "url": "https://elementumenergies.com/products",
-    "name": "Industrial Products | Elementum Energies",
-    "description": "Explore our extensive range of high-quality industrial products engineered for durability, precision, and performance.",
-    "isPartOf": {
-      "@type": "WebSite",
-      "url": "https://elementumenergies.com",
-      "name": "Elementum Energies",
-      "description": "Elementum Energies delivers innovative industrial solutions with a commitment to safety, efficiency, and sustainability."
-    },
-    "inLanguage": "en-US"
-  }}
->
-  <div
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-balance text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-4xl md:leading-tight"
+
+<MainLayout title={pageTitle}>
+  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <h1 class="mb-8 text-4xl font-bold text-neutral-800 dark:text-neutral-100">Products</h1>
+
+    <!-- Category Tabs with active state -->
+    <nav class="mb-8">
+      <div class="inline-flex divide-x rounded-lg border dark:divide-neutral-700 dark:border-neutral-700">
+        <button
+          type="button"
+          class="px-4 py-2 text-sm font-medium bg-blue-500 text-white active-tab"
+          data-target="#oilGasSection"
         >
-          {title}
-        </h1>
-        {
-          subTitle && (
-            <p class="hidden max-w-screen-sm text-pretty text-neutral-600 dark:text-neutral-400 md:block">
-              {subTitle}
-            </p>
-          )
-        }
+          Oil &amp; Gas
+        </button>
+        <button
+          type="button"
+          class="px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-700"
+          data-target="#refinerySection"
+        >
+          Refineries
+        </button>
       </div>
-      <PrimaryCTA title="Client Success Stories" url="#testimonials" noArrow={true} />
-    </div>
-    <!--Displaying products in alternating styles-->
-    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        product.map((product, index) => {
-          const position = index % 4;
-          if (position === 0 || position === 3) {
-            return <CardSmall product={product} />;
-          } else {
-            return <CardWide product={product} />;
-          }
-        })
-      }
+    </nav>
+
+    <!-- Oil & Gas Section -->
+    <section id="oilGasSection" class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {oilGasProducts.map((product, index) => (
+        <div
+          class="cursor-pointer p-4 border rounded shadow hover:shadow-lg"
+          data-product-id={product.id}
+        >
+          <img src={product.main.imgMain} alt={product.main.imgAlt} class="w-full h-48 object-cover rounded" />
+          <h3 class="mt-2 text-xl font-bold">{product.title}</h3>
+        </div>
+      ))}
+    </section>
+
+    <!-- Refineries Section (hidden by default) -->
+    <section id="refinerySection" class="hidden grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {refineryProducts.map((product, index) => (
+        <div
+          class="cursor-pointer p-4 border rounded shadow hover:shadow-lg"
+          data-product-id={product.id}
+        >
+          <img src={product.main.imgMain} alt={product.main.imgAlt} class="w-full h-48 object-cover rounded" />
+          <h3 class="mt-2 text-xl font-bold">{product.title}</h3>
+        </div>
+      ))}
     </section>
   </div>
-  <!--Features statistics section-->
-  <FeaturesStatsAlt
-    title="Why Choose Elementum Energies?"
-    subTitle="Transform your operations with our innovative and reliable industrial solutions. Our products are engineered for performance, ensuring safety and efficiency in every application."
-    benefits={[
-      "High-quality products meeting strict industry standards.",
-      "Innovative solutions tailored to diverse industrial needs.",
-      "Dedicated customer service and comprehensive support.",
-    ]}
-  />
-  <!--Testimonials section-->
-  <TestimonialsSectionAlt
-    title="What Our Clients Say"
-    testimonials={testimonials}
-  />
+
+  <!-- Modal for Product Details -->
+  <div id="productModal" class="fixed inset-0 hidden z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white dark:bg-neutral-900 p-6 rounded-lg max-w-3xl w-full relative overflow-auto max-h-[90vh]">
+      <button id="closeModal" class="absolute top-2 right-2 text-2xl font-bold text-neutral-700 dark:text-neutral-300">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 </MainLayout>
+
+<script is:inline>
+  // --- TAB SWITCHING & ACTIVE STATE LOGIC ---
+  document.addEventListener("DOMContentLoaded", function () {
+    const oilGasSection = document.getElementById("oilGasSection");
+    const refinerySection = document.getElementById("refinerySection");
+    const tabButtons = document.querySelectorAll('[data-target]');
+    
+    // Initialize: show Oil & Gas and mark its button as active
+    oilGasSection.classList.remove("hidden");
+    refinerySection.classList.add("hidden");
+
+    tabButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        const targetId = button.getAttribute("data-target");
+        // Toggle sections
+        if (targetId === "#oilGasSection") {
+          oilGasSection.classList.remove("hidden");
+          refinerySection.classList.add("hidden");
+        } else {
+          refinerySection.classList.remove("hidden");
+          oilGasSection.classList.add("hidden");
+        }
+        // Update active state for buttons
+        tabButtons.forEach(btn => {
+          btn.classList.remove("bg-blue-500", "text-white");
+          btn.classList.add("text-neutral-700", "hover:bg-neutral-200", "dark:text-neutral-300", "dark:hover:bg-neutral-700");
+        });
+        button.classList.add("bg-blue-500", "text-white");
+      });
+    });
+  });
+
+  // --- MODAL LOGIC FOR PRODUCT DETAILS ---
+  // Convert products data to plain JS for client usage
+  const productsData = JSON.parse(JSON.stringify(products));
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("productModal");
+    const modalContent = document.getElementById("modalContent");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll("[data-product-id]").forEach(card => {
+      card.addEventListener("click", function () {
+        const productId = card.getAttribute("data-product-id");
+        const product = productsData.find(p => p.id.toString() === productId);
+        if (product) {
+          modalContent.innerHTML = `
+            <h2 class="text-2xl font-bold mb-4">${product.title}</h2>
+            <img src="${product.main.imgMain}" alt="${product.main.imgAlt}" class="w-full mb-4 rounded" />
+            <p class="mb-4">${product.main.content}</p>
+            <p class="mb-4">${product.description}</p>
+            <h3 class="text-xl font-bold mb-2">${product.longDescription.title}</h3>
+            <p class="mb-2">${product.longDescription.subTitle}</p>
+            ${ product.descriptionList ? `<div class="mb-4"><ul>${product.descriptionList.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul></div>` : '' }
+            <div class="flex justify-between mb-4">
+              <div>
+                ${ product.specificationsLeft ? `<ul>${product.specificationsLeft.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul>` : '' }
+              </div>
+              <div>
+                ${ product.specificationsRight ? `<ul>${product.specificationsRight.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul>` : '' }
+              </div>
+            </div>
+            <a href="${product.longDescription.btnURL}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded">${product.longDescription.btnTitle}</a>
+          `;
+          modal.classList.remove("hidden");
+        }
+      });
+    });
+
+    closeModal.addEventListener("click", function () {
+      modal.classList.add("hidden");
+    });
+  });
+</script>

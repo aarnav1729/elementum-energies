@@ -1,6 +1,7 @@
 ---
 title: "Dish Heads"
 description: "Custom dish heads tailored for specialized industrial applications."
+category: "oil-gas"
 main:
   id: 6
   content: |

@@ -1,6 +1,7 @@
 ---
 title: "Valves"
 description: "Versatile industrial valves designed for safety and performance."
+category: "refinery"
 main:
   id: 7
   content: |
@@ -10,13 +11,13 @@ main:
   imgAlt: "Industrial valves of various types"
 tabs:
   - id: "tabs-with-card-item-1"
-    dataTab: "#tabs-with-card-1"
+    dataTab: "#tabs-with-card-item-1"
     title: "Description"
   - id: "tabs-with-card-item-2"
-    dataTab: "#tabs-with-card-2"
+    dataTab: "#tabs-with-card-item-2"
     title: "Specifications"
   - id: "tabs-with-card-item-3"
-    dataTab: "#tabs-with-card-3"
+    dataTab: "#tabs-with-card-item-3"
     title: "Blueprints"
 longDescription:
   title: "Versatile Valve Solutions"

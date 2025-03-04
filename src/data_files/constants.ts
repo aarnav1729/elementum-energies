@@ -3,10 +3,10 @@ import ogImageSrc from "@images/social.png";
 
 
 export const SITE = {
-  title: "Elementum Energies",
+  title: "Elementum Energies LLC",
   tagline: "Top-quality Hardware Tools",
-  description: "Elementum Energies is a leading provider of innovative and reliable solutions for industrial applications across various sectors. With a focus on safety, efficiency, and sustainability, we offer a wide range of products and services that serves clients across Oil & Gas, Refinery & Petrochemical, Manufacturing, Marine, Mining, Construction, Agriculture, and many other sectors.",
-  description_short: "At Elementum Energies, we understand the critical role that quality and efficiency play in industrial operations. Our dedicated team of professionals work closely with clients to provide personalized service, prompt delivery, and innovative solutions that meet the highest standards. Whether you're looking to optimize your supply chain or source specialized products, we are here to help you achieve your business goals.",
+  description: "Elementum Energies LLC is a leading provider of innovative and reliable solutions for industrial applications across various sectors. With a focus on safety, efficiency, and sustainability, we offer a wide range of products and services that serves clients across Oil & Gas, Refinery & Petrochemical, Manufacturing, Marine, Mining, Construction, Agriculture, and many other sectors.",
+  description_short: "At Elementum Energies LLC, we understand the critical role that quality and efficiency play in industrial operations. Our dedicated team of professionals work closely with clients to provide personalized service, prompt delivery, and innovative solutions that meet the highest standards. Whether you're looking to optimize your supply chain or source specialized products, we are here to help you achieve your business goals.",
   url: "https://elementumenergies.vercel.app",
   author: "Aarnav Singh",
 };

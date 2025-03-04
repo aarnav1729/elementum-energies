@@ -1,6 +1,7 @@
 ---
 title: "Lubricants"
 description: "Premium industrial lubricants for optimal machinery performance."
+category: "refinery"
 main:
   id: 20
   content: |

@@ -1,6 +1,7 @@
 ---
 title: "Fasteners"
 description: "High-quality fasteners engineered for robust industrial performance."
+category: "oil-gas"
 main:
   id: 4
   content: |

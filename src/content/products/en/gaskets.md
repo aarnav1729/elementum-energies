@@ -1,6 +1,7 @@
 ---
 title: "Gaskets"
 description: "High-quality gaskets and sealing elements for leak-free performance."
+category: "refinery"
 main:
   id: 5
   content: |

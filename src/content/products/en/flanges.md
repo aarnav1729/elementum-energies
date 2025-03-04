@@ -1,6 +1,7 @@
 ---
 title: "Flanges"
 description: "Premium carbon and stainless steel flanges for industrial applications."
+category: "refinery"
 main:
   id: 3
   content: |

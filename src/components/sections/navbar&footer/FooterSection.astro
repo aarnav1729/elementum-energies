@@ -16,11 +16,9 @@ const sectionThreeContent: string = isFrench
   : "Stay updated with the latest tools and exclusive deals.";
 
 const navLinks = [
+{ name: isFrench ? "About Us" : "About Us", url: isFrench ? "/fr/services" : "/services" },
   { name: isFrench ? "Produits" : "Products", url: isFrench ? "/fr/products" : "/products" },
-  { name: isFrench ? "Services" : "Services", url: isFrench ? "/fr/services" : "/services" },
-  { name: isFrench ? "Contact" : "Contact", url: isFrench ? "/fr/contact" : "/contact" },
-  { name: isFrench ? "À propos" : "About Us", url: isFrench ? "/fr/about" : "/about" },
-];
+  { name: isFrench ? "Contact" : "Contact", url: isFrench ? "/fr/contact" : "/contact" },];
 ---
 <footer class="w-full bg-neutral-300 dark:bg-neutral-900">
   <div class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-screen-2xl">

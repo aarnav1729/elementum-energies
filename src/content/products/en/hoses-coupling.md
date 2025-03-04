@@ -1,6 +1,7 @@
 ---
 title: "Hoses & Couplings"
 description: "Premium hoses and couplings engineered for durability and high performance."
+category: "refinery"
 main:
   id: 11
   content: |

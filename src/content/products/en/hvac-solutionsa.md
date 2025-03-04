@@ -1,6 +1,7 @@
 ---
 title: "HVAC Solutions"
 description: "Comprehensive HVAC systems for optimal industrial indoor environments."
+category: "refinery"
 main:
   id: 14
   content: |

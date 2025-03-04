@@ -1,6 +1,7 @@
 ---
 title: "Pipes"
 description: "High-quality steel pipes for Oil & Gas applications."
+category: "refinery"
 main:
   id: 1
   content: |

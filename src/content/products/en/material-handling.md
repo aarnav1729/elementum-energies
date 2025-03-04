@@ -1,6 +1,7 @@
 ---
 title: "Material Handling"
 description: "Comprehensive solutions for efficient and safe material movement and storage."
+category: "refinery"
 main:
   id: 19
   content: |

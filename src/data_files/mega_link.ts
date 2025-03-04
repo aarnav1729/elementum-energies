@@ -3,7 +3,7 @@ export const servicesData = [
   {
     title: "Explore Expert Insights",
     description:
-      "Dive deep into technical guides and best practices for maximizing your industrial operations with Elementum Energies' solutions.",
+      "Dive deep into technical guides and best practices for maximizing your industrial operations with Elementum Energies LLC's solutions.",
     icon: "guides",
     url: "#",
   },
@@ -49,7 +49,7 @@ export const successStoriesData = [
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
     alt: "Industry professional collaborating in a modern facility",
     description:
-      "See how Elementum Energies has empowered industrial clients worldwide to enhance operational performance and efficiency.",
+      "See how Elementum Energies LLC has empowered industrial clients worldwide to enhance operational performance and efficiency.",
     learnMoreUrl: "#",
   },
 ];

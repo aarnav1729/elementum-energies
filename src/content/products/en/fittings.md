@@ -1,6 +1,7 @@
 ---
 title: "Fittings"
 description: "Premium steel fittings for critical Oil & Gas applications."
+category: "oil-gas"
 main:
   id: 2
   content: |

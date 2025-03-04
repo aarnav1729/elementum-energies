@@ -1,6 +1,7 @@
 ---
 title: "Fire Protection"
 description: "Cutting-edge fire protection solutions for industrial safety."
+category: "oil-gas"
 main:
   id: 13
   content: |

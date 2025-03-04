@@ -1,6 +1,7 @@
 ---
 title: "Computers and Printers"
 description: "Advanced computing and printing solutions for industrial applications."
+category: "oil-gas"
 main:
   id: 17
   content: |
@@ -10,13 +11,13 @@ main:
   imgAlt: "Industrial computers and printers"
 tabs:
   - id: "tabs-with-card-item-1"
-    dataTab: "#tabs-with-card-1"
+    dataTab: "#tabs-with-card-item-1"
     title: "Description"
   - id: "tabs-with-card-item-2"
-    dataTab: "#tabs-with-card-2"
+    dataTab: "#tabs-with-card-item-2"
     title: "Specifications"
   - id: "tabs-with-card-item-3"
-    dataTab: "#tabs-with-card-3"
+    dataTab: "#tabs-with-card-item-3"
     title: "Blueprints"
 longDescription:
   title: "Advanced Computing & Printing"
