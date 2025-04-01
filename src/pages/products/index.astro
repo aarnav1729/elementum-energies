@@ -1,7 +1,11 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import { SITE } from "@data/constants";
-
+import demoimg from "@images/v2.jpg";
+import dish from "@images/dish.jpg";
+import fit from "@images/fittings.jpg";
+import refin from "@images/ref.jpg";
+import fitb from "@images/fitb.webp";
 // --- MOCK DATA ---
 // Products are split into two main categories: "oil-gas" and "refinery".
 // All details and specifications (as provided) are now included.
@@ -12,7 +16,7 @@ const products = [
     title: "Oil & Gas Pipe 300",
     description: "High-quality seamless pipe for oil & gas applications.",
     main: {
-      imgMain: "/images/oilpipe.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Oil & Gas Pipe 300",
       content: "This pipe is designed for harsh oil & gas environments."
     },
@@ -34,8 +38,8 @@ const products = [
       { title: "Schedules", subTitle: "SCH. 20 - SCH. XXS" }
     ],
     blueprints: {
-      first: "/images/blueprint-oil-1.avif",
-      second: "/images/blueprint-oil-2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -44,7 +48,7 @@ const products = [
     title: "Refinery Valve X",
     description: "High-performance valve for refinery systems.",
     main: {
-      imgMain: "/images/valve.jpg",
+      imgMain: refin.src,
       imgAlt: "Refinery Valve X",
       content: "This valve ensures optimal flow and control in refinery operations."
     },
@@ -66,8 +70,8 @@ const products = [
       { title: "Standards", subTitle: "API 600" }
     ],
     blueprints: {
-      first: "/images/blueprint-valve-1.avif",
-      second: "/images/blueprint-valve-2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -76,7 +80,7 @@ const products = [
     title: "Oil & Gas Fitting A",
     description: "Premium fitting for oil & gas pipelines.",
     main: {
-      imgMain: "/images/fitting.jpg",
+      imgMain: fit.src,
       imgAlt: "Oil & Gas Fitting A",
       content: "Durable fitting that ensures secure connections in oil & gas pipelines."
     },
@@ -90,8 +94,8 @@ const products = [
     specificationsLeft: [{ title: "Material", subTitle: "Carbon Steel" }],
     specificationsRight: [{ title: "Sizes", subTitle: '1/2" - 36"' }],
     blueprints: {
-      first: "/images/blueprint-fitting-1.avif",
-      second: "/images/blueprint-fitting-2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -100,7 +104,7 @@ const products = [
     title: "Refinery Fitting B",
     description: "Robust fitting designed for refinery operations.",
     main: {
-      imgMain: "/images/refineryfitting.jpg",
+      imgMain: fitb.src,
       imgAlt: "Refinery Fitting B",
       content: "Ensures secure and efficient connections in refinery systems."
     },
@@ -114,8 +118,8 @@ const products = [
     specificationsLeft: [{ title: "Material", subTitle: "Stainless Steel" }],
     specificationsRight: [{ title: "Sizes", subTitle: '6" - 24"' }],
     blueprints: {
-      first: "/images/blueprint-refineryfitting-1.avif",
-      second: "/images/blueprint-refineryfitting-2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   // ----- Additional Oil & Gas Products -----
@@ -125,7 +129,7 @@ const products = [
     title: "Pipes",
     description: "High-quality carbon, stainless, duplex and super duplex steel pipes.",
     main: {
-      imgMain: "/images/oilpipes-detail.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Oil & Gas Pipes",
       content: "Our pipes range from 1/2\" to 48\" in various material grades, approved globally."
     },
@@ -142,8 +146,8 @@ const products = [
     ],
     specificationsRight: [{ title: "Schedules", subTitle: "SCH. 20 – SCH. XXS" }],
     blueprints: {
-      first: "/images/blueprint-oilpipe1.avif",
-      second: "/images/blueprint-oilpipe2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -152,7 +156,7 @@ const products = [
     title: "Fittings",
     description: "Premium fittings meeting global Oil & Gas standards.",
     main: {
-      imgMain: "/images/oilfittings-detail.jpg",
+      imgMain: fit.src,
       imgAlt: "Oil & Gas Fittings",
       content: "Range from 1/2\" to 36\" including buttweld and forged types."
     },
@@ -169,8 +173,8 @@ const products = [
     ],
     specificationsRight: [{ title: "Types", subTitle: "Buttweld & Forged" }],
     blueprints: {
-      first: "/images/blueprint-oilfittings1.avif",
-      second: "/images/blueprint-oilfittings2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -179,7 +183,7 @@ const products = [
     title: "Flanges",
     description: "Premium carbon and stainless steel flanges in various sizes.",
     main: {
-      imgMain: "/images/flanges.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Oil & Gas Flanges",
       content: "Flanges approved by major Oil & Gas companies and available in multiple types."
     },
@@ -199,8 +203,8 @@ const products = [
       { title: "Class", subTitle: "CL. 150 – CL. 1500" }
     ],
     blueprints: {
-      first: "/images/blueprint-flanges1.avif",
-      second: "/images/blueprint-flanges2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -209,7 +213,7 @@ const products = [
     title: "Fasteners",
     description: "High-quality carbon & stainless steel fasteners.",
     main: {
-      imgMain: "/images/fasteners.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Oil & Gas Fasteners",
       content: "Includes stud bolts, hex bolts, U-bolts, anchor bolts, eye bolts, nuts, washers, and pipe clamps."
     },
@@ -225,8 +229,8 @@ const products = [
     ],
     specificationsRight: [{ title: "Sizes", subTitle: '1/4” – 4”' }],
     blueprints: {
-      first: "/images/blueprint-fasteners1.avif",
-      second: "/images/blueprint-fasteners2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -235,7 +239,7 @@ const products = [
     title: "Gaskets",
     description: "High-quality gaskets and static sealing elements.",
     main: {
-      imgMain: "/images/gaskets.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Oil & Gas Gaskets",
       content: "Offering spiral wound, non-asbestos soft cut, ring joint, and flange isolation kits."
     },
@@ -249,8 +253,8 @@ const products = [
     specificationsLeft: [{ title: "Grades", subTitle: "Carbon Steel, Stainless Steel, Neoprene, EPDM, Viton, NBR, Silicon" }],
     specificationsRight: [{ title: "Sizes", subTitle: '1/2" – 48"' }],
     blueprints: {
-      first: "/images/blueprint-gaskets1.avif",
-      second: "/images/blueprint-gaskets2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -259,7 +263,7 @@ const products = [
     title: "Dish Heads",
     description: "Superior dish heads available in a full range of sizes and thicknesses.",
     main: {
-      imgMain: "/images/dishheads.jpg",
+      imgMain: dish.src,
       imgAlt: "Oil & Gas Dish Heads",
       content: "Dish heads from 500mm to 7200mm diameter and 5mm to 115mm thickness."
     },
@@ -276,8 +280,8 @@ const products = [
       { title: "Thickness", subTitle: "5mm – 115mm" }
     ],
     blueprints: {
-      first: "/images/blueprint-dishheads1.avif",
-      second: "/images/blueprint-dishheads2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -286,7 +290,7 @@ const products = [
     title: "Pressure Vessels",
     description: "Custom-designed pressure vessels for industrial applications.",
     main: {
-      imgMain: "/images/pressure-vessels.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Oil & Gas Pressure Vessels",
       content: "Designed and fabricated to meet ASME standards for diverse industrial needs."
     },
@@ -300,8 +304,8 @@ const products = [
     specificationsLeft: [{ title: "Certifications", subTitle: "ASME Section VIII, Division 1 & 2, National Board Certified" }],
     specificationsRight: [{ title: "Material", subTitle: "Various high-grade steels" }],
     blueprints: {
-      first: "/images/blueprint-pressure1.avif",
-      second: "/images/blueprint-pressure2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -310,7 +314,7 @@ const products = [
     title: "Gratings",
     description: "High-quality electro-forged gratings for safe industrial access.",
     main: {
-      imgMain: "/images/gratings.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Oil & Gas Gratings",
       content: "Custom fabricated to meet NAAMM standards and application needs."
     },
@@ -324,8 +328,8 @@ const products = [
     specificationsLeft: [{ title: "Customization", subTitle: "Available in various configurations" }],
     specificationsRight: [{ title: "Standards", subTitle: "NAAMM compliant" }],
     blueprints: {
-      first: "/images/blueprint-gratings1.avif",
-      second: "/images/blueprint-gratings2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -334,7 +338,7 @@ const products = [
     title: "Welding Equipment & Consumables",
     description: "Premium welding machines, accessories, and consumables.",
     main: {
-      imgMain: "/images/welding-equipment.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Welding Equipment",
       content: "From portable machines to automated solutions, with top-quality welding rods, wires, and more."
     },
@@ -348,8 +352,8 @@ const products = [
     specificationsLeft: [{ title: "Equipment Types", subTitle: "Welding and Cutting Machines" }],
     specificationsRight: [{ title: "Consumables", subTitle: "Welding rods, wires, and accessories" }],
     blueprints: {
-      first: "/images/blueprint-welding1.avif",
-      second: "/images/blueprint-welding2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -358,7 +362,7 @@ const products = [
     title: "Workshop Tools & Consumables",
     description: "Comprehensive industrial tools and equipment for every job.",
     main: {
-      imgMain: "/images/workshop-tools.jpg",
+      imgMain:demoimg.src,
       imgAlt: "Workshop Tools",
       content: "Power tools, hand tools, and testing equipment to boost productivity."
     },
@@ -372,8 +376,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Dewalt, Ridgid, Fluke, Extech, Flir, 3M" }],
     specificationsRight: [{ title: "Applications", subTitle: "Construction, Maintenance, Testing" }],
     blueprints: {
-      first: "/images/blueprint-workshop1.avif",
-      second: "/images/blueprint-workshop2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   // ----- Additional Refinery & Petrochemical Products -----
@@ -383,7 +387,7 @@ const products = [
     title: "Fluid Dynamics & Measurement",
     description: "Cutting-edge fluid dynamics and measurement solutions.",
     main: {
-      imgMain: "/images/fluid-dynamics.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Fluid Dynamics & Measurement",
       content: "Includes control valves, needle valves, relief valves, and high-accuracy gauges."
     },
@@ -397,8 +401,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Bray-Controls, Flowserve, Siemens, Emerson, GEMÜ, ABB" }],
     specificationsRight: [{ title: "Applications", subTitle: "Chemical, Petrochemical, Water Treatment, Pharmaceuticals" }],
     blueprints: {
-      first: "/images/blueprint-fluid1.avif",
-      second: "/images/blueprint-fluid2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -407,7 +411,7 @@ const products = [
     title: "Pumps",
     description: "High-performance pumps for demanding refinery processes.",
     main: {
-      imgMain: "/images/pumps-detail.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Refinery Pumps",
       content: "Includes centrifugal, positive displacement, submersible, diaphragm, and screw pumps."
     },
@@ -421,8 +425,8 @@ const products = [
     specificationsLeft: [{ title: "Product Types", subTitle: "Centrifugal, Positive Displacement, Submersible, Diaphragm, Screw" }],
     specificationsRight: [{ title: "Applications", subTitle: "Chemical Processing, Water Treatment, Refinery" }],
     blueprints: {
-      first: "/images/blueprint-pumps1.avif",
-      second: "/images/blueprint-pumps2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -431,7 +435,7 @@ const products = [
     title: "Motors & Blowers",
     description: "Explosion-proof motors and blowers for demanding applications.",
     main: {
-      imgMain: "/images/motors-blowers.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Motors & Blowers",
       content: "High-performance AC & DC motors, fans, pumps, and blowers designed for hazardous areas."
     },
@@ -445,8 +449,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Cemp, ABB, WEG, Siemens, TECO, Baldor, Howden" }],
     specificationsRight: [{ title: "Applications", subTitle: "Industrial, Refineries, Mining, Cement" }],
     blueprints: {
-      first: "/images/blueprint-motors1.avif",
-      second: "/images/blueprint-motors2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -455,7 +459,7 @@ const products = [
     title: "Hoses & Couplings",
     description: "Premium hoses and couplings engineered for high performance.",
     main: {
-      imgMain: "/images/hoses-couplings.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Hoses & Couplings",
       content: "Includes hydraulic, chemical, industrial and food-grade hoses with various coupling types."
     },
@@ -469,8 +473,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Eaton, Gassó, Gates, Parker, HANSA‑FLEX, Enerpac, Hi-Force, ALFAGOMMA" }],
     specificationsRight: [{ title: "Applications", subTitle: "Refineries, Chemical Processing, Industrial" }],
     blueprints: {
-      first: "/images/blueprint-hoses1.avif",
-      second: "/images/blueprint-hoses2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -479,7 +483,7 @@ const products = [
     title: "PPE",
     description: "Wide selection of personal protective equipment for workforce safety.",
     main: {
-      imgMain: "/images/ppe.jpg",
+      imgMain: demoimg.src,
       imgAlt: "PPE",
       content: "Includes safety helmets, glasses, earplugs, disposable masks, gloves, boots, and coveralls."
     },
@@ -493,8 +497,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "DuPont, 3M, MSA, Honeywell, Red Wing, CAT" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-ppe1.avif",
-      second: "/images/blueprint-ppe2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -503,7 +507,7 @@ const products = [
     title: "Fire Protection",
     description: "Cutting-edge fire protection solutions for industrial safety.",
     main: {
-      imgMain: "/images/fire-protection.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Fire Protection",
       content: "Includes fire extinguishers, suppression systems, alarms, hose reels and safety training."
     },
@@ -517,8 +521,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "ANSUL, Angus Fire, Honeywell, Kidde, Tyco" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-fire1.avif",
-      second: "/images/blueprint-fire2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -527,7 +531,7 @@ const products = [
     title: "HVAC Solutions",
     description: "Comprehensive heating, ventilation, and air conditioning solutions.",
     main: {
-      imgMain: "/images/hvac.jpg",
+      imgMain: demoimg.src,
       imgAlt: "HVAC Solutions",
       content: "Engineered for residential, commercial and industrial applications."
     },
@@ -541,8 +545,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Friedrich, Carrier, Trane, Johnson Controls, Daikin, Samsung, LG, Mitsubishi" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-hvac1.avif",
-      second: "/images/blueprint-hvac2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -551,7 +555,7 @@ const products = [
     title: "Rigging Equipment",
     description: "Dependable rigging solutions for safe lifting and hoisting.",
     main: {
-      imgMain: "/images/rigging.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Rigging Equipment",
       content: "Includes hoists, winches, lifting slings, hardware and inspection tools."
     },
@@ -565,8 +569,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Crosby, Konecranes" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-rigging1.avif",
-      second: "/images/blueprint-rigging2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -575,7 +579,7 @@ const products = [
     title: "Scaffolding",
     description: "Robust scaffolding solutions designed for safety and productivity.",
     main: {
-      imgMain: "/images/scaffolding.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Scaffolding",
       content: "Systems include frame, modular, mobile and suspended scaffolding with accessories."
     },
@@ -589,8 +593,8 @@ const products = [
     specificationsLeft: [{ title: "Applications", subTitle: "Construction, Maintenance" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-scaffolding1.avif",
-      second: "/images/blueprint-scaffolding2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -599,7 +603,7 @@ const products = [
     title: "Computers & Printers",
     description: "Complete range of computing, server, and printing solutions.",
     main: {
-      imgMain: "/images/computers-printers.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Computers & Printers",
       content: "Includes desktops, laptops, servers, and various types of printers."
     },
@@ -613,8 +617,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Microsoft, HP, DELL, Lenovo, Acer, APC, Aruba, Fortinet, Cisco, NVIDIA, Logitech, Xerox, Brother, Kyocera, Toshiba" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-computers1.avif",
-      second: "/images/blueprint-computers2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -623,7 +627,7 @@ const products = [
     title: "Industrial Lighting",
     description: "High-quality industrial lighting solutions built for durability.",
     main: {
-      imgMain: "/images/industrial-lighting.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Industrial Lighting",
       content: "Includes LED, fluorescent, flood, explosion-proof and task lights."
     },
@@ -637,8 +641,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Appleton, Emerson, ABB, Philips, Siemens, GE Lighting" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-lighting1.avif",
-      second: "/images/blueprint-lighting2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -647,7 +651,7 @@ const products = [
     title: "Material Handling",
     description: "Efficient solutions for material movement and storage.",
     main: {
-      imgMain: "/images/material-handling.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Material Handling",
       content: "Includes forklifts, conveyors, pallet jacks, cranes and automated guided vehicles."
     },
@@ -661,8 +665,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Hyster, Caterpillar, Toyota, Komatsu, Demag, Konecranes, Daewoo, Hoist UK" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-material1.avif",
-      second: "/images/blueprint-material2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   },
   {
@@ -671,7 +675,7 @@ const products = [
     title: "Lubricants",
     description: "Premium industrial lubricants for high performance and longevity.",
     main: {
-      imgMain: "/images/lubricants.jpg",
+      imgMain: demoimg.src,
       imgAlt: "Lubricants",
       content: "Engineered for superior protection using top brands."
     },
@@ -685,8 +689,8 @@ const products = [
     specificationsLeft: [{ title: "Brands", subTitle: "Shell, Chevron, ExxonMobil, TOTAL, MOLYKOTE/DuPont, Lubrizol" }],
     specificationsRight: [],
     blueprints: {
-      first: "/images/blueprint-lubricants1.avif",
-      second: "/images/blueprint-lubricants2.avif"
+      first: demoimg.src,
+      second: demoimg.src
     }
   }
 ];
@@ -705,8 +709,9 @@ const pageTitle = `Products | ${SITE.title}`;
       <div class="inline-flex divide-x rounded-lg border dark:divide-neutral-700 dark:border-neutral-700">
         <button
           type="button"
-          class="px-4 py-2 text-sm font-medium bg-blue-500 text-white active-tab"
+          class="px-4 py-2 text-sm font-medium bg-blue-500 text-white"
           data-target="#oilGasSection"
+          id="oilGasTab"
         >
           Oil &amp; Gas
         </button>
@@ -714,6 +719,7 @@ const pageTitle = `Products | ${SITE.title}`;
           type="button"
           class="px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-200 dark:text-neutral-300 dark:hover:bg-neutral-700"
           data-target="#refinerySection"
+          id="refineryTab"
         >
           Refineries
         </button>
@@ -722,26 +728,28 @@ const pageTitle = `Products | ${SITE.title}`;
 
     <!-- Oil & Gas Section -->
     <section id="oilGasSection" class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {oilGasProducts.map((product, index) => (
-        <div
-          class="cursor-pointer p-4 border rounded shadow hover:shadow-lg"
-          data-product-id={product.id}
-        >
+      {oilGasProducts.map((product) => (
+        <div class="product-card cursor-pointer p-4 border rounded shadow hover:shadow-lg" data-product-id={product.id}>
           <img src={product.main.imgMain} alt={product.main.imgAlt} class="w-full h-48 object-cover rounded" />
           <h3 class="mt-2 text-xl font-bold">{product.title}</h3>
+          <!-- Description on Hover -->
+          <div class="product-description">
+            <p>{product.description}</p>
+          </div>
         </div>
       ))}
     </section>
 
     <!-- Refineries Section (hidden by default) -->
     <section id="refinerySection" class="hidden grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {refineryProducts.map((product, index) => (
-        <div
-          class="cursor-pointer p-4 border rounded shadow hover:shadow-lg"
-          data-product-id={product.id}
-        >
+      {refineryProducts.map((product) => (
+        <div class="product-card cursor-pointer p-4 border rounded shadow hover:shadow-lg" data-product-id={product.id}>
           <img src={product.main.imgMain} alt={product.main.imgAlt} class="w-full h-48 object-cover rounded" />
           <h3 class="mt-2 text-xl font-bold">{product.title}</h3>
+          <!-- Description on Hover -->
+          <div class="product-description">
+            <p>{product.description}</p>
+          </div>
         </div>
       ))}
     </section>
@@ -754,6 +762,32 @@ const pageTitle = `Products | ${SITE.title}`;
       <div id="modalContent"></div>
     </div>
   </div>
+
+  <!-- Inline CSS for Hover Effect -->
+  <style is:inline>
+    .product-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-description {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .product-card:hover .product-description {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
 </MainLayout>
 
 <script is:inline>
@@ -761,36 +795,31 @@ const pageTitle = `Products | ${SITE.title}`;
   document.addEventListener("DOMContentLoaded", function () {
     const oilGasSection = document.getElementById("oilGasSection");
     const refinerySection = document.getElementById("refinerySection");
-    const tabButtons = document.querySelectorAll('[data-target]');
+    const oilGasTab = document.getElementById("oilGasTab");
+    const refineryTab = document.getElementById("refineryTab");
     
     // Initialize: show Oil & Gas and mark its button as active
     oilGasSection.classList.remove("hidden");
     refinerySection.classList.add("hidden");
+    oilGasTab.classList.add("bg-blue-500", "text-white");
+    refineryTab.classList.remove("bg-blue-500", "text-white");
 
-    tabButtons.forEach(button => {
-      button.addEventListener("click", function () {
-        const targetId = button.getAttribute("data-target");
-        // Toggle sections
-        if (targetId === "#oilGasSection") {
-          oilGasSection.classList.remove("hidden");
-          refinerySection.classList.add("hidden");
-        } else {
-          refinerySection.classList.remove("hidden");
-          oilGasSection.classList.add("hidden");
-        }
-        // Update active state for buttons
-        tabButtons.forEach(btn => {
-          btn.classList.remove("bg-blue-500", "text-white");
-          btn.classList.add("text-neutral-700", "hover:bg-neutral-200", "dark:text-neutral-300", "dark:hover:bg-neutral-700");
-        });
-        button.classList.add("bg-blue-500", "text-white");
-      });
+    oilGasTab.addEventListener("click", function () {
+      oilGasSection.classList.remove("hidden");
+      refinerySection.classList.add("hidden");
+      oilGasTab.classList.add("bg-blue-500", "text-white");
+      refineryTab.classList.remove("bg-blue-500", "text-white");
+    });
+
+    refineryTab.addEventListener("click", function () {
+      refinerySection.classList.remove("hidden");
+      oilGasSection.classList.add("hidden");
+      refineryTab.classList.add("bg-blue-500", "text-white");
+      oilGasTab.classList.remove("bg-blue-500", "text-white");
     });
   });
 
   // --- MODAL LOGIC FOR PRODUCT DETAILS ---
-  // Convert products data to plain JS for client usage
-  const productsData = JSON.parse(JSON.stringify(products));
   document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("productModal");
     const modalContent = document.getElementById("modalContent");
@@ -799,7 +828,8 @@ const pageTitle = `Products | ${SITE.title}`;
     document.querySelectorAll("[data-product-id]").forEach(card => {
       card.addEventListener("click", function () {
         const productId = card.getAttribute("data-product-id");
-        const product = productsData.find(p => p.id.toString() === productId);
+        const product = window.products.find(p => p.id.toString() === productId);  // Correctly reference products array
+
         if (product) {
           modalContent.innerHTML = `
             <h2 class="text-2xl font-bold mb-4">${product.title}</h2>
@@ -808,13 +838,15 @@ const pageTitle = `Products | ${SITE.title}`;
             <p class="mb-4">${product.description}</p>
             <h3 class="text-xl font-bold mb-2">${product.longDescription.title}</h3>
             <p class="mb-2">${product.longDescription.subTitle}</p>
-            ${ product.descriptionList ? `<div class="mb-4"><ul>${product.descriptionList.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul></div>` : '' }
+            <div class="mb-4">
+              <ul>${product.descriptionList.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul>
+            </div>
             <div class="flex justify-between mb-4">
               <div>
-                ${ product.specificationsLeft ? `<ul>${product.specificationsLeft.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul>` : '' }
+                <ul>${product.specificationsLeft.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul>
               </div>
               <div>
-                ${ product.specificationsRight ? `<ul>${product.specificationsRight.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul>` : '' }
+                <ul>${product.specificationsRight.map(item => `<li><strong>${item.title}:</strong> ${item.subTitle}</li>`).join('')}</ul>
               </div>
             </div>
             <a href="${product.longDescription.btnURL}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded">${product.longDescription.btnTitle}</a>
